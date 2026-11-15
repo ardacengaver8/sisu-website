@@ -20,7 +20,7 @@
   /* 3D compass line-work (read once by the WebGL scene) */
   --drawing: #e3ecff;
   --drawing-accent: #8fbcff;
-  --drawing-north: #ff4d42; /* the N on the dial is red, like a real compass */
+  --drawing-north: #c8230a; /* the N on the dial: deep compass-needle red (client reference) */
 }
 
 @theme inline {
