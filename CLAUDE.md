@@ -80,8 +80,8 @@ src/
 ## The compass (src/components/compass)
 
 - **Line drawing only** — the client prefers the technical-drawing look; there is intentionally no solid/glass
-  version. Cardinal letters are always **N / E / S / W** in every language, and the **N is red**
-  (`--drawing-north`), like on a real compass (client requests).
+  version. Cardinal letters are always **N / E / S / W** in every language (client request). The N is plain
+  white (`--drawing-north`) — a red N was tried in two shades and rejected, so don't reintroduce it.
 - `CompassStage` = fixed full-screen layer behind the page + all ScrollTriggers + pointer handling.
   `CompassCanvas` = the R3F `<Canvas>`. `Compass` = geometry + per-frame animation. `dial.ts` = canvas texture.
 - Scroll story: draws itself on load → sits right of the hero → glides left as `#expertise` enters →

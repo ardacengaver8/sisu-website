@@ -16,7 +16,7 @@ import { makeDialTexture } from "./dial";
 function themeColors() {
   const css = getComputedStyle(document.documentElement);
   const v = (name: string, fallback: string) => css.getPropertyValue(name).trim() || fallback;
-  return { line: v("--drawing", "#e3ecff"), accent: v("--drawing-accent", "#8fbcff"), north: v("--drawing-north", "#c8230a") };
+  return { line: v("--drawing", "#e3ecff"), accent: v("--drawing-accent", "#8fbcff"), north: v("--drawing-north", "#ffffff") };
 }
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const smooth = (x: number) => x * x * (3 - 2 * x);
