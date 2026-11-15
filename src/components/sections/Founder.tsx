@@ -1,5 +1,10 @@
 import { Fig } from "../Fig";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { contact, type Dict } from "@/lib/i18n";
+
+// Server component, evaluated at build time (static export).
+const hasPhoto = existsSync(join(process.cwd(), "public", "founder.jpg"));
 
 export default function Founder({ t }: { t: Dict["founder"] }) {
   return (
@@ -7,15 +12,26 @@ export default function Founder({ t }: { t: Dict["founder"] }) {
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
         <Fig className="rv">{t.fig}</Fig>
         <div className="mt-10 grid gap-10 lg:grid-cols-12">
-          {/* portrait slot — replace with <img src="/founder.jpg"> once the photo arrives */}
+          {/* portrait: shows public/founder.jpg when present at build time, otherwise the placeholder */}
           <figure className="rv lg:col-span-4">
-            <div className="crop hatch relative flex aspect-[4/5] items-center justify-center border border-line bg-panel/70">
-              <svg viewBox="0 0 100 125" className="absolute inset-0 h-full w-full text-accent/25" preserveAspectRatio="none" aria-hidden="true">
-                <line x1="0" y1="0" x2="100" y2="125" stroke="currentColor" strokeWidth=".3" />
-                <line x1="100" y1="0" x2="0" y2="125" stroke="currentColor" strokeWidth=".3" />
-              </svg>
-              <span className="label relative bg-panel px-3 py-2 text-accent">{t.photo}</span>
-            </div>
+            {hasPhoto ? (
+              <div className="crop relative aspect-[4/5] border border-line bg-panel/70">
+                {/* eslint-disable-next-line @next/next/no-img-element -- static export, images are unoptimized */}
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/founder.jpg`}
+                  alt={t.name}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ) : (
+              <div className="crop hatch relative flex aspect-[4/5] items-center justify-center border border-line bg-panel/70">
+                <svg viewBox="0 0 100 125" className="absolute inset-0 h-full w-full text-accent/25" preserveAspectRatio="none" aria-hidden="true">
+                  <line x1="0" y1="0" x2="100" y2="125" stroke="currentColor" strokeWidth=".3" />
+                  <line x1="100" y1="0" x2="0" y2="125" stroke="currentColor" strokeWidth=".3" />
+                </svg>
+                <span className="label relative bg-panel px-3 py-2 text-accent">{t.photo}</span>
+              </div>
+            )}
             <figcaption className="label mt-3 flex justify-between text-muted">
               <span>{t.name}</span>
               <span>4 : 5</span>

@@ -104,8 +104,10 @@ src/
   The two current posts are placeholders marked `sample: true` — delete them when real posts arrive.
 - **Team:** `team.members` in `i18n.ts` (Mehmet, Defne and Ali Kurma). Defne's and Ali's titles are still
   "to be added"; photos are placeholders in `sections/Team.tsx`.
-- **Founder photo:** placeholder in `sections/Founder.tsx`. Put the file in `public/` and reference it with
-  `${process.env.NEXT_PUBLIC_BASE_PATH}/founder.jpg` (raw `<img>` paths are not base-path aware).
+- **Founder photo:** `public/founder.jpg` (4:5). `sections/Founder.tsx` checks for it at build time and falls
+  back to the placeholder if it's missing — to replace it, just overwrite the file. Current one is a
+  358×447 crop of the LinkedIn photo; swap in a high-res original when available. Raw `<img>` paths must be
+  prefixed with `${process.env.NEXT_PUBLIC_BASE_PATH}` (not base-path aware).
 - **Contact form:** `contact.formEndpoint` in `i18n.ts`. Empty → the form opens the visitor's mail app.
   Paste a Formspree (or similar) endpoint to receive submissions directly.
 - **Pending from the client:** client list/logos, team photos and titles, real blog posts, confirmation of
