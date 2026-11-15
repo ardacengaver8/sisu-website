@@ -7,7 +7,7 @@ export default function Hero({ t }: { t: Dict["hero"] }) {
       <div className="mx-auto grid min-h-[100svh] max-w-[1440px] grid-rows-[1fr_auto] px-4 pt-24 pb-8 sm:px-8">
         <div className="flex flex-col justify-end pb-10 md:justify-center md:pb-0">
           <Fig className="rv">{t.fig}</Fig>
-          <h1 className="display rv mt-6 text-[clamp(56px,10.5vw,176px)] md:max-w-[58%]">
+          <h1 className="display rv mt-6 text-[clamp(52px,8.6vw,150px)] text-balance md:max-w-[62%]">
             <span className="block">{t.title[0]}</span>
             <span className="block text-cobalt">{t.title[1]}</span>
           </h1>
