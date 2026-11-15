@@ -21,6 +21,10 @@ export const compass = {
   reduced: false,
 };
 
-/** Expertise i points to this heading (degrees clockwise from north). */
-export const STEP_OFFSET = 360 / 14;
-export const stepHeading = (i: number) => STEP_OFFSET + (i * 360) / 7;
+/**
+ * Heading (degrees clockwise from north) for expertise i — seven roughly even
+ * directions, rounded to multiples of 5 so the readout is always a clean number.
+ * The dial markers are drawn from the same table.
+ */
+export const HEADINGS = [25, 75, 130, 180, 230, 285, 335];
+export const stepHeading = (i: number) => HEADINGS[i % HEADINGS.length];

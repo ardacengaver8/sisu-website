@@ -19,8 +19,8 @@ export default function Manifesto({ t }: { t: Dict["manifesto"] }) {
             {t.definition}
           </p>
           <p className="rv mt-10 max-w-[52ch] text-lg leading-relaxed text-ink-2">{t.body}</p>
-          <p className="rv crop mt-10 max-w-[52ch] border border-line bg-ice-0/70 p-5 text-ink backdrop-blur-sm">
-            <span className="label mb-2 block text-cobalt">NOTE —</span>
+          <p className="rv crop mt-10 max-w-[52ch] border border-line bg-panel/70 p-5 text-ink backdrop-blur-sm">
+            <span className="label mb-2 block text-accent">NOTE —</span>
             {t.aside}
           </p>
         </div>

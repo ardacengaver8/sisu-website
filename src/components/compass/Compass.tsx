@@ -8,11 +8,16 @@ import { compass, stepHeading } from "@/lib/compass-store";
 import { makeDialTexture } from "./dial";
 
 /**
- * The Sisu compass, rendered as a technical line drawing (cobalt on ice).
+ * The Sisu compass, rendered as a technical line drawing (accent on ice).
  * Local space: unit radius ≈ 1, dial faces +Y, north = -Z.
  */
 
-const COBALT = new THREE.Color("#1d3bd6");
+/** Line colours come from CSS custom properties so the drawing follows the page theme. */
+function themeColors() {
+  const css = getComputedStyle(document.documentElement);
+  const v = (name: string, fallback: string) => css.getPropertyValue(name).trim() || fallback;
+  return { line: v("--drawing", "#e3ecff"), accent: v("--drawing-accent", "#8fbcff"), strong: v("--drawing-strong", "#ffffff") };
+}
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const smooth = (x: number) => x * x * (3 - 2 * x);
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -108,10 +113,10 @@ function useParts() {
 }
 
 /** Dashed centre lines, construction circles and the Ø dimension. */
-function useConstruction() {
+function useConstruction(color: string) {
   return useMemo(() => {
-    const dashed = new THREE.LineDashedMaterial({ color: COBALT, dashSize: 0.06, gapSize: 0.045, transparent: true, depthWrite: false });
-    const solid = new THREE.LineBasicMaterial({ color: COBALT, transparent: true, depthWrite: false });
+    const dashed = new THREE.LineDashedMaterial({ color, dashSize: 0.06, gapSize: 0.045, transparent: true, depthWrite: false });
+    const solid = new THREE.LineBasicMaterial({ color, transparent: true, depthWrite: false });
     const group = new THREE.Group();
     const add = (pts: THREE.Vector3[], m: THREE.Material) => {
       const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), m);
@@ -130,14 +135,15 @@ function useConstruction() {
     add([V(-1.06, 0.1), V(-1.06, z + 0.05)], dashed);
     add([V(1.06, 0.1), V(1.06, z + 0.05)], dashed);
     return { group };
-  }, []);
+  }, [color]);
 }
 
 type Props = { label: string; sub: string };
 
 export default function Compass({ label, sub }: Props) {
   const parts = useParts();
-  const construction = useConstruction();
+  const [colors] = useState(themeColors);
+  const construction = useConstruction(colors.line);
   const { viewport, size, camera } = useThree();
 
   const outer = useRef<THREE.Group>(null);
@@ -153,12 +159,12 @@ export default function Compass({ label, sub }: Props) {
 
   const mats = useMemo(
     () => ({
-      line: new THREE.LineBasicMaterial({ color: COBALT, transparent: true }),
+      line: new THREE.LineBasicMaterial({ color: colors.line, transparent: true }),
       dial: new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false }),
-      north: new THREE.MeshBasicMaterial({ color: COBALT, transparent: true, depthWrite: false }),
-      ripple: new THREE.LineBasicMaterial({ color: COBALT, transparent: true, opacity: 0 }),
+      north: new THREE.MeshBasicMaterial({ color: colors.accent, transparent: true, depthWrite: false }),
+      ripple: new THREE.LineBasicMaterial({ color: colors.accent, transparent: true, opacity: 0 }),
     }),
-    [],
+    [colors],
   );
 
   // dial artwork needs the web fonts, so draw it once they're ready
@@ -169,12 +175,12 @@ export default function Compass({ label, sub }: Props) {
     const sans = css.getPropertyValue("--font-archivo").trim() || "sans-serif";
     const mono = css.getPropertyValue("--font-plex-mono").trim() || "monospace";
     document.fonts.ready.then(() => {
-      if (alive) setDialTex(makeDialTexture(sans, mono));
+      if (alive) setDialTex(makeDialTexture(sans, mono, colors));
     });
     return () => {
       alive = false;
     };
-  }, []);
+  }, [colors]);
 
   const tmp = useMemo(() => ({ c: new THREE.Vector3(), e: new THREE.Vector3(), x: new THREE.Vector3(1, 0, 0) }), []);
   const phys = useRef({ angle: 0, vel: 0, lastSpin: -1e9, yaw: 0, pitch: 0, t: 0, ripple: 1 });
@@ -312,13 +318,13 @@ export default function Compass({ label, sub }: Props) {
         </group>
 
         <Html position={[1.25, 0, -1.25]} zIndexRange={[5, 0]} style={{ pointerEvents: "none" }}>
-          <div ref={labelRef} className="label whitespace-nowrap text-cobalt" style={{ opacity: 0 }}>
+          <div ref={labelRef} className="label whitespace-nowrap text-accent" style={{ opacity: 0 }}>
             <div>FIG. 01 — {label}</div>
             <div className="mt-1 normal-case tracking-normal text-muted">{sub}</div>
           </div>
         </Html>
         <Html position={[0, 0, 1.56]} center zIndexRange={[5, 0]} style={{ pointerEvents: "none" }}>
-          <div ref={dimRef} className="label whitespace-nowrap text-cobalt" style={{ opacity: 0 }}>
+          <div ref={dimRef} className="label whitespace-nowrap text-accent" style={{ opacity: 0 }}>
             Ø 64 mm
           </div>
         </Html>

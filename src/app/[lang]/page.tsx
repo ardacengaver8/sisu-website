@@ -6,6 +6,7 @@ import Manifesto from "@/components/sections/Manifesto";
 import Expertise from "@/components/sections/Expertise";
 import Numbers from "@/components/sections/Numbers";
 import Founder from "@/components/sections/Founder";
+import Team from "@/components/sections/Team";
 import Approach from "@/components/sections/Approach";
 import Journal from "@/components/sections/Journal";
 import Contact from "@/components/sections/Contact";
@@ -24,6 +25,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Expertise t={t.expertise} />
         <Numbers t={t.numbers} />
         <Founder t={t.founder} />
+        <Team t={t.team} />
         <Approach t={t.approach} />
         <Journal posts={posts} lang={lang} t={t.journal} />
         <Contact t={t.contact} />

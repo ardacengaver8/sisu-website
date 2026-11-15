@@ -9,7 +9,7 @@ export default function Hero({ t }: { t: Dict["hero"] }) {
           <Fig className="rv">{t.fig}</Fig>
           <h1 className="display rv mt-6 text-[clamp(52px,8.6vw,150px)] text-balance md:max-w-[62%]">
             <span className="block">{t.title[0]}</span>
-            <span className="block text-cobalt">{t.title[1]}</span>
+            <span className="block text-accent">{t.title[1]}</span>
           </h1>
           <p className="rv mt-6 max-w-[44ch] text-base leading-relaxed text-ink-2 sm:mt-8 sm:text-lg">{t.lead}</p>
           <div className="rv mt-8 flex flex-wrap gap-3 sm:mt-10">
@@ -27,7 +27,7 @@ export default function Hero({ t }: { t: Dict["hero"] }) {
           <div className="border-r border-line py-3 pr-3">{t.eyebrow}</div>
           <div className="py-3 pl-3 md:border-r md:border-line md:pr-3">41°03′N · 28°59′E</div>
           <div className="hidden border-r border-line py-3 pl-3 md:block">↓ {t.scroll}</div>
-          <div className="hidden py-3 pl-3 text-cobalt md:block md:text-right">◎ {t.hint}</div>
+          <div className="hidden py-3 pl-3 text-accent md:block md:text-right">◎ {t.hint}</div>
         </div>
       </div>
     </section>

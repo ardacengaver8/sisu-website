@@ -35,8 +35,8 @@ export default function Contact({ t }: { t: Dict["contact"] }) {
     }
   }
 
-  const field = "peer w-full border-0 border-b border-line-strong bg-transparent px-0 pt-7 pb-3 text-lg outline-none transition-colors focus:border-cobalt";
-  const lab = "label pointer-events-none absolute top-0 left-0 text-muted peer-focus:text-cobalt";
+  const field = "peer w-full border-0 border-b border-line-strong bg-transparent px-0 pt-7 pb-3 text-lg outline-none transition-colors focus:border-accent";
+  const lab = "label pointer-events-none absolute top-0 left-0 text-muted peer-focus:text-accent";
 
   return (
     <section id="contact" className="relative z-10 py-[clamp(72px,10vw,140px)]">
@@ -46,7 +46,7 @@ export default function Contact({ t }: { t: Dict["contact"] }) {
           <div className="lg:col-span-6">
             <h2 className="display rv text-[clamp(52px,8vw,136px)]">
               <span className="block">{t.title[0]}</span>
-              <span className="block text-cobalt">{t.title[1]}</span>
+              <span className="block text-accent">{t.title[1]}</span>
             </h2>
             <p className="rv mt-8 max-w-[42ch] text-lg text-ink-2">{t.lead}</p>
 
@@ -59,7 +59,7 @@ export default function Contact({ t }: { t: Dict["contact"] }) {
                 <div key={r.k} className="grid grid-cols-[100px_1fr] items-baseline gap-4 border-b border-line py-4 sm:grid-cols-[140px_1fr]">
                   <dt className="label text-muted">{r.k}</dt>
                   <dd>
-                    <a href={r.href} className="break-words hover:text-cobalt" {...(r.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}>
+                    <a href={r.href} className="break-words hover:text-accent" {...(r.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}>
                       {r.v}
                     </a>
                   </dd>
@@ -68,8 +68,8 @@ export default function Contact({ t }: { t: Dict["contact"] }) {
             </dl>
           </div>
 
-          <form onSubmit={submit} className="rv crop self-start border border-line bg-ice-0/80 p-6 backdrop-blur-sm sm:p-10 lg:col-span-5 lg:col-start-8">
-            <div className="label mb-4 flex justify-between text-cobalt">
+          <form onSubmit={submit} className="rv crop self-start border border-line bg-panel/80 p-6 backdrop-blur-sm sm:p-10 lg:col-span-5 lg:col-start-8">
+            <div className="label mb-4 flex justify-between text-accent">
               <span>FORM — 01</span>
               <span className="normal-case">→ {contact.email.split("@")[1]}</span>
             </div>

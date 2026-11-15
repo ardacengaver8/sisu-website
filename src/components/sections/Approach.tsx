@@ -32,16 +32,16 @@ export default function Approach({ t }: { t: Dict["approach"] }) {
         <h2 className="display rv mt-6 max-w-[14ch] text-[clamp(44px,6vw,96px)]">{t.title}</h2>
         <div className="mt-14 grid border-t border-l border-line sm:grid-cols-2 lg:grid-cols-4">
           {t.items.map((it, i) => (
-            <div key={it.t} className="rv group relative border-r border-b border-line bg-ice-0/60 p-6 backdrop-blur-sm transition-colors hover:bg-ice-0 sm:p-8">
+            <div key={it.t} className="rv group relative border-r border-b border-line bg-panel/60 p-6 backdrop-blur-sm transition-colors hover:bg-panel sm:p-8">
               <div className="flex items-start justify-between">
-                <svg viewBox="0 0 24 24" className="h-7 w-7 text-cobalt" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
+                <svg viewBox="0 0 24 24" className="h-7 w-7 text-accent" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
                   {icons[i]}
                 </svg>
                 <span className="label text-muted">P.{String(i + 1).padStart(2, "0")}</span>
               </div>
               <h3 className="wide mt-16 text-2xl font-semibold tracking-[-0.02em]">{it.t}</h3>
               <p className="mt-3 text-[15px] leading-relaxed text-ink-2">{it.b}</p>
-              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-cobalt transition-all duration-500 group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-accent transition-all duration-500 group-hover:w-full" />
             </div>
           ))}
         </div>

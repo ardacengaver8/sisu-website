@@ -1,14 +1,15 @@
 import * as THREE from "three";
 import { stepHeading } from "@/lib/compass-store";
 
-const COBALT = "#1d3bd6";
-const INK = "#0a1220";
 
 /** Cardinal letters are always N/E/S/W — the international convention on real compasses. */
 const CARDINALS = ["N", "E", "S", "W"];
 
 /** Draws the compass rose as cobalt line-work on a transparent canvas texture. */
-export function makeDialTexture(fontFamily: string, monoFamily: string) {
+export type DialColors = { line: string; accent: string; strong: string };
+
+export function makeDialTexture(fontFamily: string, monoFamily: string, colors: DialColors) {
+  const { line: COBALT, accent: ACCENT, strong: INK } = colors;
   const S = 1024;
   const c = document.createElement("canvas");
   c.width = c.height = S;
@@ -80,7 +81,8 @@ export function makeDialTexture(fontFamily: string, monoFamily: string) {
 
   // star rose (thin)
   g.lineWidth = 1.2;
-  g.strokeStyle = "rgba(29,59,214,.6)";
+  g.globalAlpha = 0.6;
+  g.strokeStyle = COBALT;
   for (let i = 0; i < 8; i++) {
     const d = i * 45;
     const long = i % 2 === 0 ? 0.56 : 0.4;
@@ -94,13 +96,15 @@ export function makeDialTexture(fontFamily: string, monoFamily: string) {
     g.stroke();
   }
 
+  g.globalAlpha = 1;
+
   // expertise markers 01–07
   for (let i = 0; i < 7; i++) {
     const d = stepHeading(i);
     const [tx, ty] = at(d, 0.775);
     const [lx, ly] = at(d - 2.6, 0.73);
     const [rx, ry] = at(d + 2.6, 0.73);
-    g.fillStyle = COBALT;
+    g.fillStyle = ACCENT;
     g.beginPath();
     g.moveTo(tx, ty);
     g.lineTo(lx, ly);

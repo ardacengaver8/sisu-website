@@ -1,35 +1,33 @@
 @import "tailwindcss";
 
-/* ---------- Design tokens: "Nordic ice" + technical drawing ---------- */
+/* ---------- Design tokens: blueprint (white line-work on Prussian blue) ---------- */
 :root {
-  --ice-0: #f8fafb;
-  --ice-50: #f1f4f7;
-  --ice-100: #e7ecf1;
-  --ice-200: #d5dde6;
-  --ice-300: #b9c5d2;
-  --ink: #0a1220;
-  --ink-2: #2c3747;
-  --muted: #627083;
-  --cobalt: #1d3bd6;
-  --cobalt-2: #4b66f2;
-  --cobalt-tint: rgba(29, 59, 214, 0.07);
-  --line: rgba(10, 18, 32, 0.12);
-  --line-strong: rgba(10, 18, 32, 0.24);
-  --grid-minor: rgba(29, 59, 214, 0.045);
-  --grid-major: rgba(29, 59, 214, 0.085);
+  --paper: #0e2a6b; /* page background — blueprint blue */
+  --paper-deep: #0a2056;
+  --panel: #12337d; /* cards / table backgrounds */
+  --ink: #f1f5ff; /* primary text + line-work */
+  --ink-2: #c9d6f3;
+  --muted: #8fa5d4;
+  --accent: #8fbcff; /* highlight blue: second headline line, labels, active states */
+  --accent-tint: rgba(143, 188, 255, 0.1);
+  --line: rgba(226, 236, 255, 0.16);
+  --line-strong: rgba(226, 236, 255, 0.32);
+  --grid-minor: rgba(226, 236, 255, 0.04);
+  --grid-major: rgba(226, 236, 255, 0.085);
+  /* 3D compass line-work (read once by the WebGL scene) */
+  --drawing: #e3ecff;
+  --drawing-accent: #8fbcff;
+  --drawing-strong: #ffffff;
 }
 
 @theme inline {
-  --color-ice-0: var(--ice-0);
-  --color-ice-50: var(--ice-50);
-  --color-ice-100: var(--ice-100);
-  --color-ice-200: var(--ice-200);
-  --color-ice-300: var(--ice-300);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-panel: var(--panel);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
-  --color-cobalt: var(--cobalt);
-  --color-cobalt-2: var(--cobalt-2);
+  --color-accent: var(--accent);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
@@ -37,29 +35,44 @@
 }
 
 html {
-  background: var(--ice-50);
+  background: var(--paper-deep);
   color: var(--ink);
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: var(--ice-50);
-  /* blueprint grid: 24px minor, 120px major */
+  background-color: var(--paper);
+  /* soft light in the middle of the sheet + faint drafting grid (24px minor, 120px major) */
   background-image:
+    radial-gradient(ellipse 80% 60% at 50% 35%, rgba(52, 104, 210, 0.35), transparent 70%),
+    radial-gradient(ellipse 120% 90% at 50% 50%, transparent 55%, rgba(5, 18, 52, 0.55)),
     linear-gradient(var(--grid-major) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
     linear-gradient(var(--grid-minor) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
-  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
-  background-position: -1px -1px;
+  background-size: 100% 100%, 100% 100%, 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  background-position: 0 0, 0 0, -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+  background-attachment: fixed, fixed, scroll, scroll, scroll, scroll;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
 }
 
+/* blueprint paper mottling */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 ::selection {
-  background: var(--cobalt);
-  color: var(--ice-0);
+  background: var(--accent);
+  color: var(--paper);
 }
 
 /* Lenis */
@@ -103,7 +116,7 @@ html.lenis body {
   position: absolute;
   width: 14px;
   height: 14px;
-  border-color: var(--cobalt);
+  border-color: var(--accent);
   pointer-events: none;
 }
 .crop::before {
@@ -122,7 +135,7 @@ html.lenis body {
 .hatch {
   background-image: repeating-linear-gradient(
     -45deg,
-    var(--cobalt-tint) 0 1px,
+    var(--accent-tint) 0 1px,
     transparent 1px 9px
   );
 }
@@ -131,7 +144,7 @@ html.lenis body {
 .dim {
   position: relative;
   height: 1px;
-  background: var(--cobalt);
+  background: var(--accent);
   opacity: 0.55;
 }
 .dim::before,
@@ -141,7 +154,7 @@ html.lenis body {
   top: -5px;
   width: 1px;
   height: 11px;
-  background: var(--cobalt);
+  background: var(--accent);
 }
 .dim::before {
   left: 0;
@@ -167,19 +180,19 @@ html.lenis body {
 }
 .btn-solid {
   background: var(--ink);
-  color: var(--ice-0);
+  color: var(--paper);
 }
 .btn-solid:hover {
-  background: var(--cobalt);
-  border-color: var(--cobalt);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 .btn-line {
-  background: color-mix(in oklab, var(--ice-0) 60%, transparent);
+  background: color-mix(in oklab, var(--paper) 60%, transparent);
   backdrop-filter: blur(6px);
 }
 .btn-line:hover {
-  border-color: var(--cobalt);
-  color: var(--cobalt);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 .btn .arr {
   transition: transform 0.25s;
@@ -253,7 +266,7 @@ html.compass-drag * {
   margin-top: 1.6em;
 }
 .prose-sisu a {
-  color: var(--cobalt);
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -268,10 +281,10 @@ html.compass-drag * {
   list-style: decimal;
 }
 .prose-sisu li::marker {
-  color: var(--cobalt);
+  color: var(--accent);
 }
 .prose-sisu blockquote {
-  border-left: 2px solid var(--cobalt);
+  border-left: 2px solid var(--accent);
   padding-left: 1.25em;
   font-size: 22px;
   line-height: 1.5;

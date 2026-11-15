@@ -17,7 +17,7 @@ const tr = {
   nav: {
     manifesto: "Sisu",
     expertise: "Uzmanlıklar",
-    founder: "Kurucu",
+    team: "Ekip",
     approach: "Yaklaşım",
     journal: "Yazılar",
     contact: "İletişim",
@@ -110,8 +110,19 @@ const tr = {
       { yr: "Bugün", org: "Sisu Danışmanlık", role: "Kurucu" },
     ],
   },
+  team: {
+    fig: "FIG. 05 — EKİBİMİZ",
+    title: "Ekibimiz",
+    intro: "Her projede, ihtiyaca göre genişleyen bir uzman ağıyla birlikte çalışan çekirdek ekibimiz.",
+    photo: "FOTOĞRAF",
+    members: [
+      { name: "Mehmet Kurma", role: "Kurucu", note: "" },
+      { name: "Defne Kurma", role: "Unvan eklenecek", note: "" },
+      { name: "Ali Kurma", role: "Unvan eklenecek", note: "" },
+    ],
+  },
   approach: {
-    fig: "FIG. 05 — YAKLAŞIM",
+    fig: "FIG. 06 — YAKLAŞIM",
     title: "Yolu birlikte yürürüz.",
     items: [
       { t: "Saha deneyimi", b: "Önerilerimiz teoriden değil; bizzat yönetilmiş şirketlerden ve çözülmüş gerçek problemlerden gelir." },
@@ -121,7 +132,7 @@ const tr = {
     ],
   },
   journal: {
-    fig: "FIG. 06 — YAZILAR",
+    fig: "FIG. 07 — YAZILAR",
     title: "Yazılar",
     intro: "Değişim, liderlik ve kurum kültürü üzerine notlar.",
     all: "Tüm yazılar",
@@ -133,7 +144,7 @@ const tr = {
     minutes: "dk okuma",
   },
   contact: {
-    fig: "FIG. 07 — İLETİŞİM",
+    fig: "FIG. 08 — İLETİŞİM",
     title: ["Yola birlikte", "çıkalım."],
     lead: "Kurumunuzun önündeki değişimi konuşalım. Formu doldurun ya da doğrudan ulaşın.",
     form: {
@@ -165,7 +176,7 @@ const en: Dict = {
   nav: {
     manifesto: "Sisu",
     expertise: "Expertise",
-    founder: "Founder",
+    team: "Team",
     approach: "Approach",
     journal: "Journal",
     contact: "Contact",
@@ -258,8 +269,19 @@ const en: Dict = {
       { yr: "Today", org: "Sisu Consulting", role: "Founder" },
     ],
   },
+  team: {
+    fig: "FIG. 05 — OUR TEAM",
+    title: "Our team",
+    intro: "Our core team, working alongside a network of specialists that grows with each project's needs.",
+    photo: "PHOTO",
+    members: [
+      { name: "Mehmet Kurma", role: "Founder", note: "" },
+      { name: "Defne Kurma", role: "Role to be added", note: "" },
+      { name: "Ali Kurma", role: "Role to be added", note: "" },
+    ],
+  },
   approach: {
-    fig: "FIG. 05 — APPROACH",
+    fig: "FIG. 06 — APPROACH",
     title: "We walk the road together.",
     items: [
       { t: "Field experience", b: "Our advice doesn't come from theory but from companies we have actually run and real problems we have solved." },
@@ -269,7 +291,7 @@ const en: Dict = {
     ],
   },
   journal: {
-    fig: "FIG. 06 — JOURNAL",
+    fig: "FIG. 07 — JOURNAL",
     title: "Journal",
     intro: "Notes on change, leadership and corporate culture.",
     all: "All articles",
@@ -281,7 +303,7 @@ const en: Dict = {
     minutes: "min read",
   },
   contact: {
-    fig: "FIG. 07 — CONTACT",
+    fig: "FIG. 08 — CONTACT",
     title: ["Let's set out", "together."],
     lead: "Let's talk about the change ahead of your organisation. Fill in the form or reach out directly.",
     form: {
@@ -311,7 +333,7 @@ const de: Dict = {
   nav: {
     manifesto: "Sisu",
     expertise: "Expertise",
-    founder: "Gründer",
+    team: "Team",
     approach: "Ansatz",
     journal: "Beiträge",
     contact: "Kontakt",
@@ -404,8 +426,19 @@ const de: Dict = {
       { yr: "Heute", org: "Sisu Beratung", role: "Gründer" },
     ],
   },
+  team: {
+    fig: "FIG. 05 — UNSER TEAM",
+    title: "Unser Team",
+    intro: "Unser Kernteam — ergänzt durch ein Netzwerk von Fachleuten, das mit den Anforderungen jedes Projekts wächst.",
+    photo: "FOTO",
+    members: [
+      { name: "Mehmet Kurma", role: "Gründer", note: "" },
+      { name: "Defne Kurma", role: "Funktion folgt", note: "" },
+      { name: "Ali Kurma", role: "Funktion folgt", note: "" },
+    ],
+  },
   approach: {
-    fig: "FIG. 05 — ANSATZ",
+    fig: "FIG. 06 — ANSATZ",
     title: "Wir gehen den Weg gemeinsam.",
     items: [
       { t: "Praxiserfahrung", b: "Unsere Empfehlungen stammen nicht aus der Theorie, sondern aus selbst geführten Unternehmen und gelösten Problemen." },
@@ -415,7 +448,7 @@ const de: Dict = {
     ],
   },
   journal: {
-    fig: "FIG. 06 — BEITRÄGE",
+    fig: "FIG. 07 — BEITRÄGE",
     title: "Beiträge",
     intro: "Notizen zu Wandel, Führung und Unternehmenskultur.",
     all: "Alle Beiträge",
@@ -427,7 +460,7 @@ const de: Dict = {
     minutes: "Min. Lesezeit",
   },
   contact: {
-    fig: "FIG. 07 — KONTAKT",
+    fig: "FIG. 08 — KONTAKT",
     title: ["Brechen wir", "gemeinsam auf."],
     lead: "Lassen Sie uns über den Wandel sprechen, der vor Ihrem Unternehmen liegt. Formular ausfüllen oder direkt Kontakt aufnehmen.",
     form: {

@@ -25,17 +25,17 @@ export default async function PostPage({ params }: PageProps<"/[lang]/blog/[slug
 
   return (
     <main className="relative z-10 mx-auto max-w-[1440px] px-4 pt-32 pb-24 sm:px-8">
-      <Link href={`/${lang}/blog/`} className="label text-muted hover:text-cobalt">
+      <Link href={`/${lang}/blog/`} className="label text-muted hover:text-accent">
         ← {t.back}
       </Link>
       <article className="mt-10 grid gap-10 lg:grid-cols-12">
         <aside className="label space-y-3 text-muted lg:col-span-3">
-          <div className="text-cobalt">{t.fig}</div>
+          <div className="text-accent">{t.fig}</div>
           <div>{formatDate(post.date, lang)}</div>
           <div>
             {post.minutes} {t.minutes}
           </div>
-          {post.sample && <div className="text-cobalt">{t.sample}</div>}
+          {post.sample && <div className="text-accent">{t.sample}</div>}
           {post.lang !== lang && <div className="normal-case tracking-normal">{t.fallback}</div>}
         </aside>
         <div className="lg:col-span-8">

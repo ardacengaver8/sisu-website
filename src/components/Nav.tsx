@@ -26,9 +26,9 @@ export default function Nav({ lang, t }: { lang: Locale; t: Dict["nav"] }) {
   const links = [
     { href: `${home}#manifesto`, label: t.manifesto, n: "01" },
     { href: `${home}#expertise`, label: t.expertise, n: "02" },
-    { href: `${home}#founder`, label: t.founder, n: "04" },
-    { href: `${home}#approach`, label: t.approach, n: "05" },
-    { href: `/${lang}/blog/`, label: t.journal, n: "06" },
+    { href: `${home}#team`, label: t.team, n: "05" },
+    { href: `${home}#approach`, label: t.approach, n: "06" },
+    { href: `/${lang}/blog/`, label: t.journal, n: "07" },
   ];
   // swap the locale segment of the current path
   const swap = (l: Locale) => (pathname ? pathname.replace(/^\/(tr|en|de)(?=\/|$)/, `/${l}`) : `/${l}/`);
@@ -36,7 +36,7 @@ export default function Nav({ lang, t }: { lang: Locale; t: Dict["nav"] }) {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled || open ? "border-line bg-ice-50/80 backdrop-blur-md" : "border-transparent"
+        scrolled || open ? "border-line bg-paper/80 backdrop-blur-md" : "border-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-4 sm:px-8">
@@ -48,8 +48,8 @@ export default function Nav({ lang, t }: { lang: Locale; t: Dict["nav"] }) {
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="group label flex gap-1.5 text-ink-2 transition-colors hover:text-cobalt">
-              <span className="text-cobalt/60">{l.n}</span>
+            <Link key={l.href} href={l.href} className="group label flex gap-1.5 text-ink-2 transition-colors hover:text-accent">
+              <span className="text-accent/60">{l.n}</span>
               {l.label}
             </Link>
           ))}
@@ -64,7 +64,7 @@ export default function Nav({ lang, t }: { lang: Locale; t: Dict["nav"] }) {
                   href={swap(l)}
                   hrefLang={l}
                   aria-current={l === lang ? "true" : undefined}
-                  className={l === lang ? "text-cobalt" : "text-muted hover:text-ink"}
+                  className={l === lang ? "text-accent" : "text-muted hover:text-ink"}
                 >
                   {l.toUpperCase()}
                 </Link>
@@ -85,15 +85,15 @@ export default function Nav({ lang, t }: { lang: Locale; t: Dict["nav"] }) {
       </div>
 
       {open && (
-        <nav className="h-[calc(100svh-64px)] border-t border-line bg-ice-50 px-4 py-8 lg:hidden" aria-label="Mobile">
-          {[...links, { href: `${home}#contact`, label: t.contact, n: "07" }].map((l) => (
+        <nav className="h-[calc(100svh-64px)] border-t border-line bg-paper px-4 py-8 lg:hidden" aria-label="Mobile">
+          {[...links, { href: `${home}#contact`, label: t.contact, n: "08" }].map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
               className="flex items-baseline gap-4 border-b border-line py-5"
             >
-              <span className="label text-cobalt">{l.n}</span>
+              <span className="label text-accent">{l.n}</span>
               <span className="display text-4xl">{l.label}</span>
             </Link>
           ))}

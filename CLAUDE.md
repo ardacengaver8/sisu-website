@@ -41,7 +41,7 @@ src/
     globals.css        design tokens, blueprint grid, component classes (.btn, .label, .display, …)
   components/
     compass/           the 3D compass (see below)
-    sections/          Hero, Manifesto, Expertise, Numbers, Founder, Approach, Journal, Contact
+    sections/          Hero, Manifesto, Expertise, Numbers, Founder, Team, Approach, Journal, Contact
     Nav.tsx Footer.tsx SmoothScroll.tsx Fig.tsx
   content/posts/<lang>/<slug>.md   blog posts
   lib/
@@ -53,9 +53,14 @@ src/
 
 ## Design language — keep it consistent
 
-- **"Nordic ice" + technical drawing.** Ice-white background with a cobalt blueprint grid, cobalt (`--cobalt`)
-  as the only accent, ink text. No dark theme, no gradients-on-black, no serif headlines — the client
-  explicitly rejected the generic "AI-made site" look.
+- **Blueprint.** White line-work and text on Prussian-blue drafting paper (faint grid, soft centre light,
+  paper mottling), with a single light-blue `--accent`. No serif headlines, no generic "AI-made site" look —
+  the client explicitly rejected it. (An earlier light "Nordic ice" grid version was rejected too.)
+- Colours are semantic CSS variables in `globals.css` `:root` — `--paper`, `--panel`, `--ink`, `--ink-2`,
+  `--muted`, `--accent`, `--line` — exposed to Tailwind as `bg-paper`, `text-accent`, `border-line`, …
+  The compass reads `--drawing`, `--drawing-accent`, `--drawing-strong` at mount, so **a whole re-theme is
+  just a `:root` change**. Alternative backgrounds that were mocked up (tracing paper, topographic, flat +
+  rulers) differ only in these variables + the `body` background.
 - Headlines: `.display` (Archivo, expanded via `font-stretch`). Small caps-style labels: `.label` (IBM Plex Mono).
 - Section captions read like drawing figures: `<Fig>FIG. 02 — …</Fig>`. Ornaments: `.crop` (corner marks),
   `.dim` (dimension line), `.hatch`.
@@ -69,7 +74,8 @@ src/
 - `CompassStage` = fixed full-screen layer behind the page + all ScrollTriggers + pointer handling.
   `CompassCanvas` = the R3F `<Canvas>`. `Compass` = geometry + per-frame animation. `dial.ts` = canvas texture.
 - Scroll story: draws itself on load → sits right of the hero → glides left as `#expertise` enters →
-  the needle swings to each expertise's heading (`stepHeading(i)` in compass-store) → fades out after `#expertise`.
+  the needle swings to each expertise's heading → fades out after `#expertise`. Headings come from the
+  `HEADINGS` table in compass-store and must stay multiples of 5 (client request); the dial markers use the same table.
   On phones it dims behind the full-width `#manifesto` text.
 - Interaction: needle follows the mouse, drag rotates (mouse only), click/tap spins it back to north with a ripple.
   Hit-testing uses `compass.screen` (projected centre/radius written every frame).
@@ -86,12 +92,15 @@ src/
 - **Blog post:** add `src/content/posts/tr/<slug>.md` with front-matter (`title`, `date`, `excerpt`, optional
   `sample: true`). Optional translations go in `en/` / `de/` with the same slug; missing ones fall back to Turkish.
   The two current posts are placeholders marked `sample: true` — delete them when real posts arrive.
+- **Team:** `team.members` in `i18n.ts` (Mehmet, Defne and Ali Kurma). Defne's and Ali's titles are still
+  "to be added"; photos are placeholders in `sections/Team.tsx`.
 - **Founder photo:** placeholder in `sections/Founder.tsx`. Put the file in `public/` and reference it with
   `${process.env.NEXT_PUBLIC_BASE_PATH}/founder.jpg` (raw `<img>` paths are not base-path aware).
 - **Contact form:** `contact.formEndpoint` in `i18n.ts`. Empty → the form opens the visitor's mail app.
   Paste a Formspree (or similar) endpoint to receive submissions directly.
-- **Pending from the client:** client list/logos, founder photo, real blog posts, confirmation of the
-  career-table wording (role ↔ company mapping was inferred from the old site).
+- **Pending from the client:** new logo (being designed from the compass — `Mark` in `Fig.tsx` and
+  `app/icon.svg` are stand-ins), client list/logos, team photos and titles, real blog posts, confirmation of
+  the career-table wording (role ↔ company mapping was inferred from the old site).
 
 ## Deployment & URLs
 

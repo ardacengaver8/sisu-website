@@ -12,7 +12,7 @@ institutionalisation, strategic planning and corporate culture.
 - **3D compass** drawn as a technical line drawing (React Three Fiber). It draws itself on load, follows the
   mouse, can be dragged and clicked, and as you scroll through the seven areas of expertise its needle swings
   to each one's heading.
-- **"Nordic ice" blueprint design** — ice-white grid paper, cobalt line-work, figure captions like an engineering drawing.
+- **Blueprint design** — white line-work on blueprint-blue drafting paper, figure captions like an engineering drawing.
 - **Three languages:** Turkish (default), English, German — `/tr`, `/en`, `/de`.
 - **Blog** written in Markdown files.
 - **Fully static** — Next.js static export, deployed to GitHub Pages by GitHub Actions.

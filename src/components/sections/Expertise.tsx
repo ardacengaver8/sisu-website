@@ -59,9 +59,9 @@ export default function Expertise({ t }: { t: Dict["expertise"] }) {
             <h2 className="display mt-4 text-[clamp(36px,4.6vw,72px)]">{t.title}</h2>
 
             <div className="mt-6 grid grid-cols-[auto_1fr] items-end gap-6 border-t border-line pt-6 md:mt-10">
-              <div className="label text-cobalt">
+              <div className="label text-accent">
                 <div className="text-muted">{t.heading}</div>
-                <div className="display mt-1 text-[clamp(44px,5vw,80px)] text-cobalt tabular-nums" style={{ fontStretch: "100%" }}>
+                <div className="display mt-1 text-[clamp(44px,5vw,80px)] text-accent tabular-nums" style={{ fontStretch: "100%" }}>
                   {hdg}°
                 </div>
               </div>
@@ -75,7 +75,7 @@ export default function Expertise({ t }: { t: Dict["expertise"] }) {
               <p className="mt-3 max-w-[52ch] text-[15px] leading-relaxed text-ink-2 md:text-base">{item.body}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
-                  <span key={tag} className="label border border-line bg-ice-0/70 px-2.5 py-1.5 text-ink-2">
+                  <span key={tag} className="label border border-line bg-panel/70 px-2.5 py-1.5 text-ink-2">
                     {tag}
                   </span>
                 ))}
@@ -92,8 +92,8 @@ export default function Expertise({ t }: { t: Dict["expertise"] }) {
                     aria-label={it.title}
                     aria-current={i === active ? "step" : undefined}
                   >
-                    <span className={`block h-[3px] transition-colors ${i === active ? "bg-cobalt" : i < active ? "bg-ink/40" : "bg-line-strong/60 group-hover:bg-ink/40"}`} />
-                    <span className={`label mt-2 block ${i === active ? "text-cobalt" : "text-muted"}`}>{String(i + 1).padStart(2, "0")}</span>
+                    <span className={`block h-[3px] transition-colors ${i === active ? "bg-accent" : i < active ? "bg-ink/40" : "bg-line-strong/60 group-hover:bg-ink/40"}`} />
+                    <span className={`label mt-2 block ${i === active ? "text-accent" : "text-muted"}`}>{String(i + 1).padStart(2, "0")}</span>
                   </button>
                 </li>
               ))}
