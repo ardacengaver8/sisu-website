@@ -67,6 +67,16 @@ src/
 - Custom component classes are inside `@layer components` so Tailwind utilities can override them —
   keep new ones there (unlayered CSS beats utilities like `hidden`).
 
+## Logo (src/components/Logo.tsx)
+
+- Approved mark: the four-point **puzzle star** redrawn from the client's original logo — N/S tips blue,
+  E/W tips green, four centre pieces alternating, tips lock in with puzzle tabs — next to "Sisu" in
+  Archivo bold, `font-stretch: 118%`, mixed case.
+- Heritage colours (print, light backgrounds, favicon): blue `#1D5BE0`, green `#1F8A3B`. On the blueprint
+  site they are lightened via `--logo-blue` / `--logo-green` for contrast.
+- Gaps between pieces are an SVG mask, so the mark works on any background; pass a unique `id` per instance.
+- `app/icon.svg` is the favicon (heritage colours on a white rounded square).
+
 ## The compass (src/components/compass)
 
 - **Line drawing only** — the client prefers the technical-drawing look; there is intentionally no solid/glass
@@ -98,8 +108,7 @@ src/
   `${process.env.NEXT_PUBLIC_BASE_PATH}/founder.jpg` (raw `<img>` paths are not base-path aware).
 - **Contact form:** `contact.formEndpoint` in `i18n.ts`. Empty → the form opens the visitor's mail app.
   Paste a Formspree (or similar) endpoint to receive submissions directly.
-- **Pending from the client:** new logo (being designed from the compass — `Mark` in `Fig.tsx` and
-  `app/icon.svg` are stand-ins), client list/logos, team photos and titles, real blog posts, confirmation of
+- **Pending from the client:** client list/logos, team photos and titles, real blog posts, confirmation of
   the career-table wording (role ↔ company mapping was inferred from the old site).
 
 ## Deployment & URLs

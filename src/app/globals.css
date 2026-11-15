@@ -14,6 +14,9 @@
   --line-strong: rgba(226, 236, 255, 0.32);
   --grid-minor: rgba(226, 236, 255, 0.04);
   --grid-major: rgba(226, 236, 255, 0.085);
+  /* logo colours on the blueprint background (heritage: blue #1D5BE0, green #1F8A3B) */
+  --logo-blue: #8fbcff;
+  --logo-green: #7fd39a;
   /* 3D compass line-work (read once by the WebGL scene) */
   --drawing: #e3ecff;
   --drawing-accent: #8fbcff;

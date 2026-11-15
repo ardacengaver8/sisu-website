@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { locales, type Dict, type Locale } from "@/lib/i18n";
-import { Mark } from "./Fig";
+import { LogoMark } from "./Logo";
 
 export default function Nav({ lang, t }: { lang: Locale; t: Dict["nav"] }) {
   const pathname = usePathname();
@@ -41,8 +41,8 @@ export default function Nav({ lang, t }: { lang: Locale; t: Dict["nav"] }) {
     >
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-4 sm:px-8">
         <Link href={home} className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <Mark className="h-7 w-7 text-ink" />
-          <span className="wide text-[15px] font-semibold tracking-[0.18em]">SİSU</span>
+          <LogoMark id="nav" className="h-8 w-8" />
+          <span className="text-xl font-bold tracking-[-0.01em]" style={{ fontStretch: "118%" }}>Sisu</span>
           <span className="label hidden text-muted sm:inline">/ {lang === "tr" ? "Danışmanlık" : lang === "de" ? "Beratung" : "Consulting"}</span>
         </Link>
 
