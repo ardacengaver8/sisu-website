@@ -1,48 +1,83 @@
-# Sisu Danışmanlık — Web Sitesi
+# Sisu Danışmanlık — Website
 
-**Sisu Danışmanlık** için tek sayfalık tanıtım (landing page) sitesi.
+Website for **Sisu Danışmanlık**, an Istanbul-based consultancy for change management,
+institutionalisation, strategic planning and corporate culture.
 
-🌐 **Canlı site:** https://ardacengaver8.github.io/sisu-website/
+🌐 **Live:** https://ardacengaver8.github.io/sisu-website/
 
-> *Sisu* (Fince): zorluklara karşı içsel güç, dayanıklılık, azim ve kararlılık.
+> *Sisu* (Finnish): inner strength, resilience, perseverance and determination in the face of adversity.
 
-## Sayfa bölümleri
+## Highlights
 
-| # | Bölüm | İçerik |
-|---|-------|--------|
-| — | Hero | Kaydırdıkça dağınık parçacıkların ufka uzanan bir yola dönüştüğü animasyon |
-| 01 | Sisu | Kelimenin anlamı ve şirketin duruşu |
-| 02 | Uzmanlıklar | 7 hizmet alanı |
-| 03 | Deneyim | Rakamlar ve kurucunun kariyer zaman çizelgesi |
-| 04 | Yaklaşım | Çalışma prensipleri |
-| 05 | İletişim | E-posta, telefon, adres |
+- **3D compass** drawn as a technical line drawing (React Three Fiber). It draws itself on load, follows the
+  mouse, can be dragged and clicked, and as you scroll through the seven areas of expertise its needle swings
+  to each one's heading.
+- **"Nordic ice" blueprint design** — ice-white grid paper, cobalt line-work, figure captions like an engineering drawing.
+- **Three languages:** Turkish (default), English, German — `/tr`, `/en`, `/de`.
+- **Blog** written in Markdown files.
+- **Fully static** — Next.js static export, deployed to GitHub Pages by GitHub Actions.
 
-## Teknik
+## Tech stack
 
-- Düz **HTML + CSS + JavaScript**. Framework yok, kurulum veya build adımı yok.
-- Tüm sayfa tek dosyada: [`index.html`](index.html)
-- Parçacık animasyonu `<canvas>` ile yazıldı, harici kütüphane kullanılmıyor.
-- Yazı tipleri: Google Fonts (Instrument Serif, Inter).
-- Mobil uyumlu; "hareketi azalt" sistem ayarını açmış ziyaretçiler için animasyonlar kapanır.
+| | |
+|---|---|
+| Framework | Next.js 16 (App Router), TypeScript, static export |
+| Styling | Tailwind CSS v4 |
+| 3D | three.js + React Three Fiber + drei |
+| Motion | GSAP ScrollTrigger, Lenis smooth scroll |
+| Content | Markdown (marked) |
+| Hosting | GitHub Pages via GitHub Actions |
 
-## Yerelde çalıştırma
-
-`index.html` dosyasını tarayıcıda açmanız yeterli. İsterseniz küçük bir sunucuyla da açabilirsiniz:
+## Getting started
 
 ```bash
-python3 -m http.server 8000
-# → http://localhost:8000
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # static site in out/
+npm run lint
 ```
 
-## Yayına alma
+Requires Node.js 20+.
 
-Site **GitHub Pages** ile yayınlanır: `main` branch'ine yapılan her push birkaç dakika içinde canlı siteye yansır.
+## Project structure
 
-## Düzenleme rehberi
+```
+src/
+  app/                 routes: / (language redirect), /[lang], /[lang]/blog, /[lang]/blog/[slug]
+  components/
+    compass/           3D compass (scene, dial texture, scroll + pointer wiring)
+    sections/          page sections (Hero, Expertise, Founder, Contact, …)
+  content/posts/       blog posts, one folder per language
+  lib/i18n.ts          all site copy (tr / en / de) and contact details
+```
 
-| Değiştirmek istediğiniz | `index.html` içinde nereye bakmalı |
+## Editing content
+
+| To change… | Edit |
 |---|---|
-| Renkler, yazı tipleri | En üstteki `:root { ... }` bloğu |
-| Metinler | İlgili `<section id="...">` blokları (`sisu`, `uzmanliklar`, `deneyim`, `yaklasim`, `iletisim`) |
-| İletişim bilgileri | `#iletisim` bölümü |
-| Animasyon | Sayfanın sonundaki `<script>` içinde "Particle field" kısmı |
+| Any text on the site | `src/lib/i18n.ts` |
+| Contact details / form endpoint | `contact` object at the bottom of `src/lib/i18n.ts` |
+| Colours, fonts, grid | `src/app/globals.css` |
+| Blog posts | add a `.md` file to `src/content/posts/tr/` (translations in `en/`, `de/`) |
+
+Blog post front-matter:
+
+```md
+---
+title: Post title
+date: 2026-11-15
+excerpt: One-sentence summary
+---
+
+Markdown body…
+```
+
+## Deployment
+
+Every push to `main` builds the site and publishes it to GitHub Pages
+(`.github/workflows/deploy.yml`). The base path is detected automatically, so moving to a custom
+domain (e.g. `sisudanismanlik.com`) requires no code changes.
+
+## For contributors / AI agents
+
+See [`CLAUDE.md`](CLAUDE.md) for architecture notes, design rules and open content tasks.
