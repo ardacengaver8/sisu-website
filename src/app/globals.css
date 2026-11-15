@@ -14,13 +14,13 @@
   --line-strong: rgba(226, 236, 255, 0.32);
   --grid-minor: rgba(226, 236, 255, 0.04);
   --grid-major: rgba(226, 236, 255, 0.085);
-  /* logo colours on the blueprint background (heritage: blue #1D5BE0, green #1F8A3B) */
-  --logo-blue: #8fbcff;
-  --logo-green: #7fd39a;
+  /* logo colours — the approved heritage blue and green, used as-is everywhere */
+  --logo-blue: #1d5be0;
+  --logo-green: #1f8a3b;
   /* 3D compass line-work (read once by the WebGL scene) */
   --drawing: #e3ecff;
   --drawing-accent: #8fbcff;
-  --drawing-strong: #ffffff;
+  --drawing-north: #ff4d42; /* the N on the dial is red, like a real compass */
 }
 
 @theme inline {

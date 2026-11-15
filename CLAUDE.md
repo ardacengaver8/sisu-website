@@ -58,7 +58,7 @@ src/
   the client explicitly rejected it. (An earlier light "Nordic ice" grid version was rejected too.)
 - Colours are semantic CSS variables in `globals.css` `:root` — `--paper`, `--panel`, `--ink`, `--ink-2`,
   `--muted`, `--accent`, `--line` — exposed to Tailwind as `bg-paper`, `text-accent`, `border-line`, …
-  The compass reads `--drawing`, `--drawing-accent`, `--drawing-strong` at mount, so **a whole re-theme is
+  The compass reads `--drawing`, `--drawing-accent`, `--drawing-north` at mount, so **a whole re-theme is
   just a `:root` change**. Alternative backgrounds that were mocked up (tracing paper, topographic, flat +
   rulers) differ only in these variables + the `body` background.
 - Headlines: `.display` (Archivo, expanded via `font-stretch`). Small caps-style labels: `.label` (IBM Plex Mono).
@@ -73,14 +73,15 @@ src/
   N/S tips blue, E/W tips green, four centre pieces alternating, tips push round puzzle tabs into the
   centre. **Flat pieces, no gaps or outlines between them** (the client rejected a version with seams).
   Next to it: "Sisu" in Archivo bold, `font-stretch: 118%`, mixed case.
-- Heritage colours (print, light backgrounds, favicon): blue `#1D5BE0`, green `#1F8A3B`. On the blueprint
-  site they are lightened via `--logo-blue` / `--logo-green` for contrast.
+- Colours: blue `#1D5BE0`, green `#1F8A3B` (`--logo-blue` / `--logo-green`). Use them unchanged everywhere,
+  including on the dark blueprint background — the client rejected lightened tones.
 - `app/icon.svg` is the favicon (heritage colours on a white rounded square).
 
 ## The compass (src/components/compass)
 
 - **Line drawing only** — the client prefers the technical-drawing look; there is intentionally no solid/glass
-  version. Cardinal letters are always **N / E / S / W** in every language (client request).
+  version. Cardinal letters are always **N / E / S / W** in every language, and the **N is red**
+  (`--drawing-north`), like on a real compass (client requests).
 - `CompassStage` = fixed full-screen layer behind the page + all ScrollTriggers + pointer handling.
   `CompassCanvas` = the R3F `<Canvas>`. `Compass` = geometry + per-frame animation. `dial.ts` = canvas texture.
 - Scroll story: draws itself on load → sits right of the hero → glides left as `#expertise` enters →

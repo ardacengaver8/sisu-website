@@ -6,10 +6,10 @@ import { stepHeading } from "@/lib/compass-store";
 const CARDINALS = ["N", "E", "S", "W"];
 
 /** Draws the compass rose as cobalt line-work on a transparent canvas texture. */
-export type DialColors = { line: string; accent: string; strong: string };
+export type DialColors = { line: string; accent: string; north: string };
 
 export function makeDialTexture(fontFamily: string, monoFamily: string, colors: DialColors) {
-  const { line: COBALT, accent: ACCENT, strong: INK } = colors;
+  const { line: COBALT, accent: ACCENT, north: NORTH } = colors;
   const S = 1024;
   const c = document.createElement("canvas");
   c.width = c.height = S;
@@ -74,7 +74,7 @@ export function makeDialTexture(fontFamily: string, monoFamily: string, colors: 
     g.save();
     g.translate(x, y);
     g.rotate((d * Math.PI) / 180);
-    g.fillStyle = i === 0 ? INK : stroke;
+    g.fillStyle = i === 0 ? NORTH : stroke; // red N, as on real compasses
     g.fillText(l, 0, 0);
     g.restore();
   });
