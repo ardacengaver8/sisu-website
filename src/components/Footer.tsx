@@ -5,7 +5,7 @@ export default function Footer({ t }: { t: Dict }) {
   return (
     <footer className="relative z-10 border-t border-line bg-panel/70 backdrop-blur-sm">
       <div className="mx-auto max-w-[1440px] px-4 pt-16 pb-8 sm:px-8">
-        <Logo id="footer" className="select-none text-[17vw] text-ink sm:text-[15vw] lg:text-[11rem]" />
+        <Logo className="select-none text-[17vw] text-ink sm:text-[15vw] lg:text-[11rem]" />
         <div className="mt-10 grid gap-8 border-t border-line pt-8 sm:grid-cols-3">
           <p className="max-w-[28ch] text-ink-2">{t.footer.tagline}</p>
           <div className="label space-y-2 text-muted">

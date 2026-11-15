@@ -69,12 +69,12 @@ src/
 
 ## Logo (src/components/Logo.tsx)
 
-- Approved mark: the four-point **puzzle star** redrawn from the client's original logo — N/S tips blue,
-  E/W tips green, four centre pieces alternating, tips lock in with puzzle tabs — next to "Sisu" in
-  Archivo bold, `font-stretch: 118%`, mixed case.
+- Approved mark (concept "F1"): the four-point **puzzle star** redrawn from the client's original logo —
+  N/S tips blue, E/W tips green, four centre pieces alternating, tips push round puzzle tabs into the
+  centre. **Flat pieces, no gaps or outlines between them** (the client rejected a version with seams).
+  Next to it: "Sisu" in Archivo bold, `font-stretch: 118%`, mixed case.
 - Heritage colours (print, light backgrounds, favicon): blue `#1D5BE0`, green `#1F8A3B`. On the blueprint
   site they are lightened via `--logo-blue` / `--logo-green` for contrast.
-- Gaps between pieces are an SVG mask, so the mark works on any background; pass a unique `id` per instance.
 - `app/icon.svg` is the favicon (heritage colours on a white rounded square).
 
 ## The compass (src/components/compass)

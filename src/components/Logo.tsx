@@ -1,7 +1,8 @@
 /**
- * Sisu logo mark: the four-point puzzle star from the original logo, redrawn.
- * Tips (N/S blue, E/W green) lock into four centre pieces with puzzle tabs.
- * Gaps between pieces are cut with a mask, so the mark sits on any background.
+ * Sisu logo mark (approved concept "F1"): the four-point puzzle star from the
+ * original logo, redrawn as flat pieces with no gaps. Tips (N/S blue, E/W green)
+ * sit on four alternating centre squares and push into them with round puzzle tabs.
+ * Draw order matters: centre squares first, tips on top.
  *
  * Colours come from --logo-blue / --logo-green (see globals.css). Heritage values
  * for print and light backgrounds: blue #1D5BE0, green #1F8A3B.
@@ -30,40 +31,24 @@ const TIP_COLOURS: [keyof typeof TIPS, string][] = [
   ["W", GREEN],
 ];
 
-/** `id` must be unique per page (it names the SVG mask). */
-export function LogoMark({ id, className = "" }: { id: string; className?: string }) {
-  const mask = `sisu-gaps-${id}`;
+export function LogoMark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 120" className={className} role="img" aria-label="Sisu">
-      <defs>
-        <mask id={mask} maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120">
-          <rect width="120" height="120" fill="#fff" />
-          {/* seams = tip outlines + the centre cross between the tabs (the tabs bridge it) */}
-          <g fill="none" stroke="#000" strokeWidth="2.6" strokeLinejoin="round">
-            <path d="M60 50.7 V69.3 M50.7 60 H69.3" />
-            {Object.values(TIPS).map((d) => (
-              <path key={d} d={d} />
-            ))}
-          </g>
-        </mask>
-      </defs>
-      <g mask={`url(#${mask})`}>
-        {CENTRE.map(([x, y, fill]) => (
-          <rect key={`${x}-${y}`} x={x} y={y} width="20" height="20" fill={fill} />
-        ))}
-        {TIP_COLOURS.map(([k, fill]) => (
-          <path key={k} d={TIPS[k]} fill={fill} />
-        ))}
-      </g>
+      {CENTRE.map(([x, y, fill]) => (
+        <rect key={`${x}-${y}`} x={x} y={y} width="20" height="20" fill={fill} />
+      ))}
+      {TIP_COLOURS.map(([k, fill]) => (
+        <path key={k} d={TIPS[k]} fill={fill} />
+      ))}
     </svg>
   );
 }
 
 /** Mark + "Sisu" wordmark, sized by the parent's font-size. */
-export function Logo({ id, className = "", sub }: { id: string; className?: string; sub?: string }) {
+export function Logo({ className = "", sub }: { className?: string; sub?: string }) {
   return (
     <span className={`inline-flex items-center gap-[0.32em] leading-none ${className}`}>
-      <LogoMark id={id} className="h-[1.5em] w-[1.5em] shrink-0" />
+      <LogoMark className="h-[1.5em] w-[1.5em] shrink-0" />
       <span className="flex flex-col gap-[0.22em]">
         <span className="font-bold tracking-[-0.01em]" style={{ fontStretch: "118%" }}>
           Sisu
