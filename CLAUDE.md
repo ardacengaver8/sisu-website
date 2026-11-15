@@ -69,10 +69,10 @@ src/
 
 ## Logo (src/components/Logo.tsx)
 
-- Approved mark (concept "F1"): the four-point **puzzle star** redrawn from the client's original logo —
-  N/S tips blue, E/W tips green, four centre pieces alternating, tips push round puzzle tabs into the
-  centre. **Flat pieces, no gaps or outlines between them** (the client rejected a version with seams).
-  Next to it: "Sisu" in Archivo bold, `font-stretch: 118%`, mixed case.
+- Approved mark (concept "M4 — shaded rose"): a four-point compass rose descended from the client's original
+  puzzle-star logo. Each arm is split lengthwise like real compass-rose shading — clockwise half blue,
+  other half green — giving a pinwheel motion. No puzzle tabs, outlines or gaps. Next to it: "Sisu" in
+  Archivo bold, `font-stretch: 118%`, mixed case. (Earlier approved F1 puzzle version was replaced by M4.)
 - Colours: blue `#1D5BE0`, green `#1F8A3B` (`--logo-blue` / `--logo-green`). Use them unchanged everywhere,
   including on the dark blueprint background — the client rejected lightened tones.
 - `app/icon.svg` is the favicon (heritage colours on a white rounded square).
