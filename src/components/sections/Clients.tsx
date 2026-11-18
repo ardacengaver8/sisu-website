@@ -1,5 +1,6 @@
 import { Fig } from "../Fig";
 import type { Dict } from "@/lib/i18n";
+import { PinIcon } from "../Icons";
 
 /**
  * Client list. Names only for now, set as wordmarks in the display face; when the
@@ -18,8 +19,12 @@ export default function Clients({ t }: { t: Dict["clients"] }) {
 
         <ul className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
           {t.items.map((c) => (
-            <li key={c.name} className="rv crop flex min-h-[160px] items-center justify-center bg-paper px-6 py-10 text-center">
+            <li key={c.name} className="rv crop flex min-h-[160px] flex-col items-center justify-center gap-3 bg-paper px-6 py-10 text-center">
               <span className="wide text-[clamp(22px,2vw,28px)] font-semibold leading-tight tracking-[-0.01em]">{c.name}</span>
+              <span className="label flex items-center gap-1.5 text-muted">
+                <PinIcon className="h-4 w-4 shrink-0 text-accent" />
+                {c.loc}
+              </span>
             </li>
           ))}
         </ul>

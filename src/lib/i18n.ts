@@ -144,10 +144,10 @@ const tr = {
     title: "Danışanlarımız",
     intro: "Değişim yolculuğunda birlikte çalıştığımız kurumlardan bazıları.",
     items: [
-      { name: "Arimpeks Constantia" },
-      { name: "Pal Plastik" },
-      { name: "Boğaziçi Etiket" },
-      { name: "Jim Lake Companies" },
+      { name: "Arimpeks Constantia", loc: "Stuttgart, Almanya" },
+      { name: "Pal Plastik", loc: "İstanbul, Türkiye" },
+      { name: "Boğaziçi Etiket", loc: "İstanbul, Türkiye" },
+      { name: "Jim Lake Companies", loc: "Dallas, TX, ABD" },
     ],
   },
   approach: {
@@ -333,10 +333,10 @@ const en: Dict = {
     title: "Our clients",
     intro: "Some of the organisations we have worked with on their journey of change.",
     items: [
-      { name: "Arimpeks Constantia" },
-      { name: "Pal Plastik" },
-      { name: "Boğaziçi Etiket" },
-      { name: "Jim Lake Companies" },
+      { name: "Arimpeks Constantia", loc: "Stuttgart, Germany" },
+      { name: "Pal Plastik", loc: "Istanbul, Türkiye" },
+      { name: "Boğaziçi Etiket", loc: "Istanbul, Türkiye" },
+      { name: "Jim Lake Companies", loc: "Dallas, TX, USA" },
     ],
   },
   approach: {
@@ -520,10 +520,10 @@ const de: Dict = {
     title: "Unsere Kunden",
     intro: "Einige der Unternehmen, die wir auf ihrem Weg des Wandels begleitet haben.",
     items: [
-      { name: "Arimpeks Constantia" },
-      { name: "Pal Plastik" },
-      { name: "Boğaziçi Etiket" },
-      { name: "Jim Lake Companies" },
+      { name: "Arimpeks Constantia", loc: "Stuttgart, Deutschland" },
+      { name: "Pal Plastik", loc: "Istanbul, Türkei" },
+      { name: "Boğaziçi Etiket", loc: "Istanbul, Türkei" },
+      { name: "Jim Lake Companies", loc: "Dallas, TX, USA" },
     ],
   },
   approach: {
