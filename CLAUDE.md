@@ -103,15 +103,16 @@ src/
 - **Blog post:** add `src/content/posts/tr/<slug>.md` with front-matter (`title`, `date`, `excerpt`, optional
   `sample: true`). Optional translations go in `en/` / `de/` with the same slug; missing ones fall back to Turkish.
   The two current posts are placeholders marked `sample: true` — delete them when real posts arrive.
-- **Team:** `team.members` in `i18n.ts` (Mehmet, Defne and Ali Kurma). Defne's and Ali's titles are still
-  "to be added"; photos are placeholders in `sections/Team.tsx`.
+- **Team:** `team.members` in `i18n.ts` — Mehmet Kurma (Founder), Defne Kurma (Marketing Specialist),
+  Ali Yunus Türker (Data Analyst). Each has an `img` path under `public/` (4:5, white background);
+  `sections/Team.tsx` shows the placeholder if the file is missing. Mehmet reuses `founder.jpg`.
 - **Founder photo:** `public/founder.jpg` (4:5). `sections/Founder.tsx` checks for it at build time and falls
   back to the placeholder if it's missing — to replace it, just overwrite the file. Current one is a
   358×447 crop of the LinkedIn photo; swap in a high-res original when available. Raw `<img>` paths must be
   prefixed with `${process.env.NEXT_PUBLIC_BASE_PATH}` (not base-path aware).
 - **Contact form:** `contact.formEndpoint` in `i18n.ts`. Empty → the form opens the visitor's mail app.
   Paste a Formspree (or similar) endpoint to receive submissions directly.
-- **Pending from the client:** client list/logos, team photos and titles, real blog posts, confirmation of
+- **Pending from the client:** client list/logos, real blog posts, confirmation of
   the career-table wording (role ↔ company mapping was inferred from the old site).
 
 ## Deployment & URLs

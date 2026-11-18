@@ -24,7 +24,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Manifesto t={t.manifesto} />
         <Expertise t={t.expertise} />
         <Numbers t={t.numbers} />
-        <Founder t={t.founder} />
+        <Founder t={t.founder} lang={lang} />
         <Team t={t.team} />
         <Approach t={t.approach} />
         <Journal posts={posts} lang={lang} t={t.journal} />

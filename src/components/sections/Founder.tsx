@@ -1,12 +1,13 @@
 import { Fig } from "../Fig";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { contact, type Dict } from "@/lib/i18n";
+import { contact, type Dict, type Locale } from "@/lib/i18n";
+import { formatDate } from "@/lib/posts";
 
 // Server component, evaluated at build time (static export).
 const hasPhoto = existsSync(join(process.cwd(), "public", "founder.jpg"));
 
-export default function Founder({ t }: { t: Dict["founder"] }) {
+export default function Founder({ t, lang }: { t: Dict["founder"]; lang: Locale }) {
   return (
     <section id="founder" className="relative z-10 py-[clamp(72px,10vw,140px)]">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
@@ -70,6 +71,39 @@ export default function Founder({ t }: { t: Dict["founder"] }) {
                 </div>
               ))}
             </div>
+
+            {/* press mentions — link out to the source, summary in our own words */}
+            {t.press.length > 0 && (
+              <div className="rv mt-14">
+                <div className="label text-muted">{t.pressLabel}</div>
+                <ul className="mt-4 border-t border-line">
+                  {t.press.map((p) => (
+                    <li key={p.url} className="border-b border-line">
+                      <a
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener"
+                        className="group grid gap-2 py-6 transition-colors hover:bg-panel/70 sm:grid-cols-[140px_1fr_auto] sm:items-baseline sm:gap-6 sm:px-3"
+                      >
+                        <span className="label text-accent">
+                          {formatDate(p.date, lang)}
+                          <span className="mt-1 block text-muted">{p.source}</span>
+                        </span>
+                        <span>
+                          <span className="wide block text-xl font-semibold leading-snug tracking-[-0.01em] group-hover:text-accent">
+                            {p.title}
+                          </span>
+                          <span className="mt-2 block max-w-[60ch] text-[15px] text-ink-2">{p.note}</span>
+                        </span>
+                        <span className="label text-ink">
+                          {t.pressRead} <span className="arr inline-block transition-transform group-hover:translate-x-1">↗</span>
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>

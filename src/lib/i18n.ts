@@ -109,6 +109,17 @@ const tr = {
       { yr: "2017 — 2022", org: "Etapak & Etap Enjeksiyon", role: "CEO ve yönetim kurulu üyesi" },
       { yr: "Bugün", org: "Sisu Danışmanlık", role: "Kurucu" },
     ],
+    pressLabel: "BASINDA",
+    pressRead: "Haberi oku",
+    press: [
+      {
+        source: "Packworld Türkiye",
+        date: "2016-01-14",
+        title: "Baskılı Ambalajla Ciro Sıralamasında Devler Ligine Girdi",
+        note: "Amcor Flexibles İstanbul genel müdürü olarak Mehmet Kurma, Tuzla tesisinin Amcor'un küresel ciro sıralamasında ilk 15'e girişini, 4,5 milyon euroluk yenileme yatırımını ve iş güvenliği programını anlatıyor.",
+        url: "https://packworldturkiye.com/baskili-ambalajla-ciro-siralamasinda-devler-ligine-girdi",
+      },
+    ],
   },
   team: {
     fig: "FIG. 05 — EKİBİMİZ",
@@ -116,9 +127,9 @@ const tr = {
     intro: "Her projede, ihtiyaca göre genişleyen bir uzman ağıyla birlikte çalışan çekirdek ekibimiz.",
     photo: "FOTOĞRAF",
     members: [
-      { name: "Mehmet Kurma", role: "Kurucu", note: "" },
-      { name: "Defne Kurma", role: "Unvan eklenecek", note: "" },
-      { name: "Ali Kurma", role: "Unvan eklenecek", note: "" },
+      { name: "Mehmet Kurma", role: "Kurucu", note: "", img: "founder.jpg" },
+      { name: "Defne Kurma", role: "Pazarlama Uzmanı", note: "", img: "team/defne-kurma.jpg" },
+      { name: "Ali Yunus Türker", role: "Veri Analisti", note: "", img: "team/ali-yunus-turker.jpg" },
     ],
   },
   approach: {
@@ -268,6 +279,17 @@ const en: Dict = {
       { yr: "2017 — 2022", org: "Etapak & Etap Enjeksiyon", role: "CEO and board member" },
       { yr: "Today", org: "Sisu Consulting", role: "Founder" },
     ],
+    pressLabel: "IN THE PRESS",
+    pressRead: "Read the article",
+    press: [
+      {
+        source: "Packworld Türkiye",
+        date: "2016-01-14",
+        title: "Baskılı Ambalajla Ciro Sıralamasında Devler Ligine Girdi",
+        note: "As general manager of Amcor Flexibles Istanbul, Mehmet Kurma describes how the Tuzla plant entered the top 15 of Amcor's global revenue ranking, its €4.5 million renewal investment and its workplace-safety programme. (Article in Turkish.)",
+        url: "https://packworldturkiye.com/baskili-ambalajla-ciro-siralamasinda-devler-ligine-girdi",
+      },
+    ],
   },
   team: {
     fig: "FIG. 05 — OUR TEAM",
@@ -275,9 +297,9 @@ const en: Dict = {
     intro: "Our core team, working alongside a network of specialists that grows with each project's needs.",
     photo: "PHOTO",
     members: [
-      { name: "Mehmet Kurma", role: "Founder", note: "" },
-      { name: "Defne Kurma", role: "Role to be added", note: "" },
-      { name: "Ali Kurma", role: "Role to be added", note: "" },
+      { name: "Mehmet Kurma", role: "Founder", note: "", img: "founder.jpg" },
+      { name: "Defne Kurma", role: "Marketing Specialist", note: "", img: "team/defne-kurma.jpg" },
+      { name: "Ali Yunus Türker", role: "Data Analyst", note: "", img: "team/ali-yunus-turker.jpg" },
     ],
   },
   approach: {
@@ -425,6 +447,17 @@ const de: Dict = {
       { yr: "2017 — 2022", org: "Etapak & Etap Enjeksiyon", role: "CEO und Vorstandsmitglied" },
       { yr: "Heute", org: "Sisu Beratung", role: "Gründer" },
     ],
+    pressLabel: "IN DER PRESSE",
+    pressRead: "Artikel lesen",
+    press: [
+      {
+        source: "Packworld Türkiye",
+        date: "2016-01-14",
+        title: "Baskılı Ambalajla Ciro Sıralamasında Devler Ligine Girdi",
+        note: "Als Geschäftsführer von Amcor Flexibles Istanbul berichtet Mehmet Kurma, wie das Werk in Tuzla unter die Top 15 im weltweiten Umsatzranking von Amcor kam, über die Modernisierungsinvestition von 4,5 Mio. € und das Arbeitssicherheitsprogramm. (Artikel auf Türkisch.)",
+        url: "https://packworldturkiye.com/baskili-ambalajla-ciro-siralamasinda-devler-ligine-girdi",
+      },
+    ],
   },
   team: {
     fig: "FIG. 05 — UNSER TEAM",
@@ -432,9 +465,9 @@ const de: Dict = {
     intro: "Unser Kernteam — ergänzt durch ein Netzwerk von Fachleuten, das mit den Anforderungen jedes Projekts wächst.",
     photo: "FOTO",
     members: [
-      { name: "Mehmet Kurma", role: "Gründer", note: "" },
-      { name: "Defne Kurma", role: "Funktion folgt", note: "" },
-      { name: "Ali Kurma", role: "Funktion folgt", note: "" },
+      { name: "Mehmet Kurma", role: "Gründer", note: "", img: "founder.jpg" },
+      { name: "Defne Kurma", role: "Marketing-Spezialistin", note: "", img: "team/defne-kurma.jpg" },
+      { name: "Ali Yunus Türker", role: "Datenanalyst", note: "", img: "team/ali-yunus-turker.jpg" },
     ],
   },
   approach: {
