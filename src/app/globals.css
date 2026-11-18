@@ -14,9 +14,10 @@
   --line-strong: rgba(226, 236, 255, 0.32);
   --grid-minor: rgba(226, 236, 255, 0.04);
   --grid-major: rgba(226, 236, 255, 0.085);
-  /* logo colours — the approved heritage blue and green, used as-is everywhere */
-  --logo-blue: #1d5be0;
-  --logo-green: #1f8a3b;
+  /* logo colours — a slightly deeper heritage blue and green, always drawn on a white plate
+     (the original #1d5be0 / #1f8a3b vanished against the blueprint background) */
+  --logo-blue: #1747b8;
+  --logo-green: #186d2f;
   /* 3D compass line-work (read once by the WebGL scene) */
   --drawing: #e3ecff;
   --drawing-accent: #8fbcff;

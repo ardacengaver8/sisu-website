@@ -4,7 +4,8 @@
  * shading on a real compass rose — the clockwise half blue, the other half green —
  * which gives the mark a turning, pinwheel motion.
  *
- * Colours: --logo-blue #1D5BE0, --logo-green #1F8A3B (globals.css), used unchanged everywhere.
+ * Colours: --logo-blue #1747B8, --logo-green #186D2F (globals.css). The mark sits on a white
+ * rounded plate (like the favicon) so it stays legible on the dark blueprint background.
  */
 
 const C = "60 60"; // centre
@@ -19,12 +20,15 @@ const ARMS: [string, string, string][] = [
 export function LogoMark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 120" className={className} role="img" aria-label="Sisu">
-      {ARMS.map(([tip, cw, ccw]) => (
-        <g key={tip}>
-          <path d={`M${tip} L${cw} L${C} Z`} fill="var(--logo-blue)" />
-          <path d={`M${tip} L${ccw} L${C} Z`} fill="var(--logo-green)" />
-        </g>
-      ))}
+      <rect width="120" height="120" rx="26" fill="#ffffff" />
+      <g transform="translate(60 60) scale(.84) translate(-60 -60)">
+        {ARMS.map(([tip, cw, ccw]) => (
+          <g key={tip}>
+            <path d={`M${tip} L${cw} L${C} Z`} fill="var(--logo-blue)" />
+            <path d={`M${tip} L${ccw} L${C} Z`} fill="var(--logo-green)" />
+          </g>
+        ))}
+      </g>
     </svg>
   );
 }

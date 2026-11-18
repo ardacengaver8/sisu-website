@@ -10,8 +10,8 @@ const hasPhoto = existsSync(join(process.cwd(), "public", "founder.jpg"));
 // Company logos for the career table, keyed by `org` (same in every language). Files in public/logos/.
 const LOGOS: Record<string, string> = {
   Siemens: "siemens.svg",
-  "Amcor Flexibles": "amcor.svg",
-  "Etapak & Etap Enjeksiyon": "etapak.svg",
+  "Amcor Flexibles": "amcor.png",
+  "Etapak & Etap Enjeksiyon": "etapak.png",
 };
 
 /** Logo on a small white plate so brand colours stay true on the blueprint background. */
@@ -19,13 +19,13 @@ function OrgLogo({ org }: { org: string }) {
   const file = LOGOS[org];
   if (!file) return null;
   return (
-    <span className="mb-2 flex h-9 w-[120px] items-center justify-center rounded-[3px] bg-white px-3">
+    <span className="mb-2 flex h-12 w-[136px] items-center justify-center rounded-[3px] bg-white px-3 py-1.5">
       {/* eslint-disable-next-line @next/next/no-img-element -- static export, images are unoptimized */}
       <img
         src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logos/${file}`}
         alt=""
         loading="lazy"
-        className="max-h-5 w-auto max-w-full object-contain"
+        className="max-h-full w-auto max-w-full object-contain"
       />
     </span>
   );

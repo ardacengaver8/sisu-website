@@ -18,6 +18,7 @@ const tr = {
     manifesto: "Sisu",
     expertise: "Uzmanlıklar",
     team: "Ekip",
+    clients: "Danışanlar",
     approach: "Yaklaşım",
     journal: "Yazılar",
     contact: "İletişim",
@@ -138,8 +139,19 @@ const tr = {
       { name: "Ali Yunus Türker", role: "Veri Analisti", note: "", img: "team/ali-yunus-turker.jpg" },
     ],
   },
+  clients: {
+    fig: "FIG. 06 — DANIŞANLARIMIZ",
+    title: "Danışanlarımız",
+    intro: "Değişim yolculuğunda birlikte çalıştığımız kurumlardan bazıları.",
+    items: [
+      { name: "Arimpeks Constantia" },
+      { name: "Pal Plastik" },
+      { name: "Boğaziçi Etiket" },
+      { name: "Jim Lake Companies" },
+    ],
+  },
   approach: {
-    fig: "FIG. 06 — YAKLAŞIM",
+    fig: "FIG. 07 — YAKLAŞIM",
     title: "Yolu birlikte yürürüz.",
     items: [
       { t: "Saha deneyimi", b: "Önerilerimiz teoriden değil; bizzat yönetilmiş şirketlerden ve çözülmüş gerçek problemlerden gelir." },
@@ -149,7 +161,7 @@ const tr = {
     ],
   },
   journal: {
-    fig: "FIG. 07 — YAZILAR",
+    fig: "FIG. 08 — YAZILAR",
     title: "Yazılar",
     intro: "Değişim, liderlik ve kurum kültürü üzerine notlar.",
     all: "Tüm yazılar",
@@ -161,7 +173,7 @@ const tr = {
     minutes: "dk okuma",
   },
   contact: {
-    fig: "FIG. 08 — İLETİŞİM",
+    fig: "FIG. 09 — İLETİŞİM",
     title: ["Yola birlikte", "çıkalım."],
     lead: "Kurumunuzun önündeki değişimi konuşalım. Formu doldurun ya da doğrudan ulaşın.",
     form: {
@@ -195,6 +207,7 @@ const en: Dict = {
     manifesto: "Sisu",
     expertise: "Expertise",
     team: "Team",
+    clients: "Clients",
     approach: "Approach",
     journal: "Journal",
     contact: "Contact",
@@ -315,8 +328,19 @@ const en: Dict = {
       { name: "Ali Yunus Türker", role: "Data Analyst", note: "", img: "team/ali-yunus-turker.jpg" },
     ],
   },
+  clients: {
+    fig: "FIG. 06 — OUR CLIENTS",
+    title: "Our clients",
+    intro: "Some of the organisations we have worked with on their journey of change.",
+    items: [
+      { name: "Arimpeks Constantia" },
+      { name: "Pal Plastik" },
+      { name: "Boğaziçi Etiket" },
+      { name: "Jim Lake Companies" },
+    ],
+  },
   approach: {
-    fig: "FIG. 06 — APPROACH",
+    fig: "FIG. 07 — APPROACH",
     title: "We walk the road together.",
     items: [
       { t: "Field experience", b: "Our advice doesn't come from theory but from companies we have actually run and real problems we have solved." },
@@ -326,7 +350,7 @@ const en: Dict = {
     ],
   },
   journal: {
-    fig: "FIG. 07 — JOURNAL",
+    fig: "FIG. 08 — JOURNAL",
     title: "Journal",
     intro: "Notes on change, leadership and corporate culture.",
     all: "All articles",
@@ -338,7 +362,7 @@ const en: Dict = {
     minutes: "min read",
   },
   contact: {
-    fig: "FIG. 08 — CONTACT",
+    fig: "FIG. 09 — CONTACT",
     title: ["Let's set out", "together."],
     lead: "Let's talk about the change ahead of your organisation. Fill in the form or reach out directly.",
     form: {
@@ -370,6 +394,7 @@ const de: Dict = {
     manifesto: "Sisu",
     expertise: "Expertise",
     team: "Team",
+    clients: "Kunden",
     approach: "Ansatz",
     journal: "Beiträge",
     contact: "Kontakt",
@@ -490,8 +515,19 @@ const de: Dict = {
       { name: "Ali Yunus Türker", role: "Datenanalyst", note: "", img: "team/ali-yunus-turker.jpg" },
     ],
   },
+  clients: {
+    fig: "FIG. 06 — UNSERE KUNDEN",
+    title: "Unsere Kunden",
+    intro: "Einige der Unternehmen, die wir auf ihrem Weg des Wandels begleitet haben.",
+    items: [
+      { name: "Arimpeks Constantia" },
+      { name: "Pal Plastik" },
+      { name: "Boğaziçi Etiket" },
+      { name: "Jim Lake Companies" },
+    ],
+  },
   approach: {
-    fig: "FIG. 06 — ANSATZ",
+    fig: "FIG. 07 — ANSATZ",
     title: "Wir gehen den Weg gemeinsam.",
     items: [
       { t: "Praxiserfahrung", b: "Unsere Empfehlungen stammen nicht aus der Theorie, sondern aus selbst geführten Unternehmen und gelösten Problemen." },
@@ -501,7 +537,7 @@ const de: Dict = {
     ],
   },
   journal: {
-    fig: "FIG. 07 — BEITRÄGE",
+    fig: "FIG. 08 — BEITRÄGE",
     title: "Beiträge",
     intro: "Notizen zu Wandel, Führung und Unternehmenskultur.",
     all: "Alle Beiträge",
@@ -513,7 +549,7 @@ const de: Dict = {
     minutes: "Min. Lesezeit",
   },
   contact: {
-    fig: "FIG. 08 — KONTAKT",
+    fig: "FIG. 09 — KONTAKT",
     title: ["Brechen wir", "gemeinsam auf."],
     lead: "Lassen Sie uns über den Wandel sprechen, der vor Ihrem Unternehmen liegt. Formular ausfüllen oder direkt Kontakt aufnehmen.",
     form: {

@@ -27,8 +27,9 @@ export default function Nav({ lang, t }: { lang: Locale; t: Dict["nav"] }) {
     { href: `${home}#manifesto`, label: t.manifesto, n: "01" },
     { href: `${home}#expertise`, label: t.expertise, n: "02" },
     { href: `${home}#team`, label: t.team, n: "05" },
-    { href: `${home}#approach`, label: t.approach, n: "06" },
-    { href: `/${lang}/blog/`, label: t.journal, n: "07" },
+    { href: `${home}#clients`, label: t.clients, n: "06" },
+    { href: `${home}#approach`, label: t.approach, n: "07" },
+    { href: `/${lang}/blog/`, label: t.journal, n: "08" },
   ];
   // swap the locale segment of the current path
   const swap = (l: Locale) => (pathname ? pathname.replace(/^\/(tr|en|de)(?=\/|$)/, `/${l}`) : `/${l}/`);
@@ -86,7 +87,7 @@ export default function Nav({ lang, t }: { lang: Locale; t: Dict["nav"] }) {
 
       {open && (
         <nav className="h-[calc(100svh-64px)] border-t border-line bg-paper px-4 py-8 lg:hidden" aria-label="Mobile">
-          {[...links, { href: `${home}#contact`, label: t.contact, n: "08" }].map((l) => (
+          {[...links, { href: `${home}#contact`, label: t.contact, n: "09" }].map((l) => (
             <Link
               key={l.href}
               href={l.href}

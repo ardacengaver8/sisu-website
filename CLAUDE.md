@@ -73,8 +73,10 @@ src/
   puzzle-star logo. Each arm is split lengthwise like real compass-rose shading — clockwise half blue,
   other half green — giving a pinwheel motion. No puzzle tabs, outlines or gaps. Next to it: "Sisu" in
   Archivo bold, `font-stretch: 118%`, mixed case. (Earlier approved F1 puzzle version was replaced by M4.)
-- Colours: blue `#1D5BE0`, green `#1F8A3B` (`--logo-blue` / `--logo-green`). Use them unchanged everywhere,
-  including on the dark blueprint background — the client rejected lightened tones.
+- Colours: blue `#1747B8`, green `#186D2F` (`--logo-blue` / `--logo-green`) — slightly deeper than the original
+  `#1D5BE0` / `#1F8A3B` at the client's request. The original blue disappeared into the page's lighter centre glow,
+  so `LogoMark` now always draws the mark on a white rounded plate (same as the favicon). The client rejected
+  lightened tones earlier, so don't fix contrast by lightening.
 - `app/icon.svg` is the favicon (heritage colours on a white rounded square).
 
 ## The compass (src/components/compass)
@@ -112,14 +114,17 @@ src/
   prefixed with `${process.env.NEXT_PUBLIC_BASE_PATH}` (not base-path aware).
 - **Press:** `founder.press` in `i18n.ts` — listed under the career table, newest first. Link out to the
   source and summarise in our own words; never paste article text.
+- **Clients:** `clients.items` in `i18n.ts` → `sections/Clients.tsx` (FIG. 06, nav "06"), names only until
+  logos arrive. Adding it shifted Approach/Journal/Contact to FIG. 07/08/09.
 - **Career logos:** `LOGOS` map in `sections/Founder.tsx` (keyed by `org`, same in every language) →
-  `public/logos/*.svg`, shown in original colours on a small white plate. Siemens/Amcor from Wikimedia
-  Commons, Etapak from etapak.com.tr (also used for the "Etapak & Etap Enjeksiyon" row).
+  `public/logos/` (siemens.svg from Wikimedia Commons; amcor.png and etapak.png supplied by the client,
+  trimmed to 120px high), shown in original colours on a small white plate. Etapak covers the
+  "Etapak & Etap Enjeksiyon" row.
 - **Contact:** email/phone/address rows in `sections/Contact.tsx` and the footer use the line icons in
   `components/Icons.tsx`; all are real `mailto:` / `tel:` / maps links. The footer has no tagline (client request).
 - **Contact form:** `contact.formEndpoint` in `i18n.ts`. Empty → the form opens the visitor's mail app.
   Paste a Formspree (or similar) endpoint to receive submissions directly.
-- **Pending from the client:** client list/logos, real blog posts, confirmation of
+- **Pending from the client:** client logos, real blog posts, confirmation of
   the career-table wording (role ↔ company mapping was inferred from the old site).
 
 ## Deployment & URLs

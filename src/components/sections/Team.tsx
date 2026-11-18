@@ -22,13 +22,12 @@ export default function Team({ t }: { t: Dict["team"] }) {
         </div>
 
         <ul className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
-          {t.members.map((m, i) => (
+          {t.members.map((m) => (
             <li key={m.name} className="rv bg-paper">
               {hasFile(m.img) ? (
                 <div className="crop relative m-5 aspect-[4/5] border border-line bg-panel/60">
                   {/* eslint-disable-next-line @next/next/no-img-element -- static export, images are unoptimized */}
                   <img src={`${base}/${m.img}`} alt={m.name} loading="lazy" className="h-full w-full object-cover" />
-                  <span className="label absolute top-3 right-3 bg-panel px-1.5 text-accent">T.{String(i + 1).padStart(2, "0")}</span>
                 </div>
               ) : (
                 <div className="crop hatch relative m-5 flex aspect-[4/5] items-center justify-center border border-line bg-panel/60">
@@ -37,7 +36,6 @@ export default function Team({ t }: { t: Dict["team"] }) {
                     <line x1="100" y1="0" x2="0" y2="125" stroke="currentColor" strokeWidth=".3" />
                   </svg>
                   <span className="label relative bg-panel px-3 py-2 text-accent">{t.photo}</span>
-                  <span className="label absolute top-3 right-3 text-accent">T.{String(i + 1).padStart(2, "0")}</span>
                 </div>
               )}
               <div className="flex items-baseline justify-between gap-4 border-t border-line px-5 py-5">
