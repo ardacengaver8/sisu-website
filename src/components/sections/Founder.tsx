@@ -7,6 +7,30 @@ import { formatDate } from "@/lib/posts";
 // Server component, evaluated at build time (static export).
 const hasPhoto = existsSync(join(process.cwd(), "public", "founder.jpg"));
 
+// Company logos for the career table, keyed by `org` (same in every language). Files in public/logos/.
+const LOGOS: Record<string, string> = {
+  Siemens: "siemens.svg",
+  "Amcor Flexibles": "amcor.svg",
+  "Etapak & Etap Enjeksiyon": "etapak.svg",
+};
+
+/** Logo on a small white plate so brand colours stay true on the blueprint background. */
+function OrgLogo({ org }: { org: string }) {
+  const file = LOGOS[org];
+  if (!file) return null;
+  return (
+    <span className="mb-2 flex h-9 w-[120px] items-center justify-center rounded-[3px] bg-white px-3">
+      {/* eslint-disable-next-line @next/next/no-img-element -- static export, images are unoptimized */}
+      <img
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logos/${file}`}
+        alt=""
+        loading="lazy"
+        className="max-h-5 w-auto max-w-full object-contain"
+      />
+    </span>
+  );
+}
+
 export default function Founder({ t, lang }: { t: Dict["founder"]; lang: Locale }) {
   return (
     <section id="founder" className="relative z-10 py-[clamp(72px,10vw,140px)]">
@@ -63,9 +87,15 @@ export default function Founder({ t, lang }: { t: Dict["founder"]; lang: Locale 
                   className={`grid grid-cols-[110px_1fr] sm:grid-cols-[140px_220px_1fr] ${i < t.timeline.length - 1 ? "border-b border-line" : ""}`}
                 >
                   <div className="label px-4 py-4 text-accent">{r.yr}</div>
-                  <div className="hidden border-l border-line px-4 py-4 font-semibold sm:block">{r.org}</div>
+                  <div className="hidden border-l border-line px-4 py-4 font-semibold sm:block">
+                    <OrgLogo org={r.org} />
+                    {r.org}
+                  </div>
                   <div className="border-l border-line px-4 py-4 text-[15px] text-ink-2">
-                    <span className="block font-semibold text-ink sm:hidden">{r.org}</span>
+                    <span className="block font-semibold text-ink sm:hidden">
+                      <OrgLogo org={r.org} />
+                      {r.org}
+                    </span>
                     {r.role}
                   </div>
                 </div>

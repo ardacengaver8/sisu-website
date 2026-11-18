@@ -41,7 +41,6 @@ const tr = {
     pos: "Fince · isim",
     definition: "Zorluklara karşı içsel güç, dayanıklılık, azim ve kararlılık.",
     body: "Değişim kolay değildir; hazırlıksız başlatılan dönüşümlerin çoğu yarıda kalır. Doğru yön, sabır ve kararlılık ister. Biz bu yolu kurumunuzla birlikte, adım adım yürürüz.",
-    aside: "Her kurumun kuzeyi farklıdır. Önce onu birlikte buluruz.",
   },
   expertise: {
     fig: "FIG. 02 — UZMANLIK ALANLARI",
@@ -119,6 +118,13 @@ const tr = {
         note: "Amcor Flexibles İstanbul genel müdürü olarak Mehmet Kurma, Tuzla tesisinin Amcor'un küresel ciro sıralamasında ilk 15'e girişini, 4,5 milyon euroluk yenileme yatırımını ve iş güvenliği programını anlatıyor.",
         url: "https://packworldturkiye.com/baskili-ambalajla-ciro-siralamasinda-devler-ligine-girdi",
       },
+      {
+        source: "Haberler.com",
+        date: "2015-12-03",
+        title: "Amcor'a İş Güvenliği Başkanlık Altın Ödülü",
+        note: "Amcor Flexibles İstanbul, her hafta farklı bir çalışanın güvensiz davranışları takip ettiği \"Güvenlik Kaptanları\" programıyla Safety Awards altın ödülünü kazandı; tesis 1.092 gün kazasız çalıştı.",
+        url: "https://www.haberler.com/guncel/amcor-a-is-guvenligi-baskanlik-altin-odulu-7933825-haberi/",
+      },
     ],
   },
   team: {
@@ -169,10 +175,11 @@ const tr = {
       error: "Bir sorun oluştu. Lütfen doğrudan e-posta ile ulaşın.",
       mailtoNote: "Gönder'e bastığınızda e-posta uygulamanız açılır.",
       subject: "Web sitesinden mesaj",
+      label: "İLETİŞİM FORMU",
     },
     labels: { email: "E-posta", phone: "Telefon", address: "Adres" },
   },
-  footer: { tagline: "Zorluklara karşı içsel güç.", rights: "Tüm hakları saklıdır." },
+  footer: { contact: "İLETİŞİM", address: "ADRES", rights: "Tüm hakları saklıdır." },
   compass: { label: "Pusula", sub: "Değişimin yönü" },
 };
 
@@ -211,7 +218,6 @@ const en: Dict = {
     pos: "Finnish · noun",
     definition: "Inner strength, resilience, perseverance and determination in the face of adversity.",
     body: "Change is never easy; most transformations launched without preparation stall halfway. It takes the right direction, patience and resolve. We walk that road with your organisation, step by step.",
-    aside: "Every organisation has its own north. First, we find it together.",
   },
   expertise: {
     fig: "FIG. 02 — AREAS OF EXPERTISE",
@@ -289,6 +295,13 @@ const en: Dict = {
         note: "As general manager of Amcor Flexibles Istanbul, Mehmet Kurma describes how the Tuzla plant entered the top 15 of Amcor's global revenue ranking, its €4.5 million renewal investment and its workplace-safety programme. (Article in Turkish.)",
         url: "https://packworldturkiye.com/baskili-ambalajla-ciro-siralamasinda-devler-ligine-girdi",
       },
+      {
+        source: "Haberler.com",
+        date: "2015-12-03",
+        title: "Amcor'a İş Güvenliği Başkanlık Altın Ödülü",
+        note: "Amcor Flexibles Istanbul won a Safety Awards gold prize for its \"Safety Captains\" programme, in which a different employee watches for unsafe behaviour each week; the plant reached 1,092 days without an accident. (Article in Turkish.)",
+        url: "https://www.haberler.com/guncel/amcor-a-is-guvenligi-baskanlik-altin-odulu-7933825-haberi/",
+      },
     ],
   },
   team: {
@@ -339,10 +352,11 @@ const en: Dict = {
       error: "Something went wrong. Please reach out by email.",
       mailtoNote: "Pressing Send opens your email app.",
       subject: "Message from the website",
+      label: "CONTACT FORM",
     },
     labels: { email: "Email", phone: "Phone", address: "Address" },
   },
-  footer: { tagline: "Inner strength in the face of adversity.", rights: "All rights reserved." },
+  footer: { contact: "CONTACT", address: "ADDRESS", rights: "All rights reserved." },
   compass: { label: "Compass", sub: "The direction of change" },
 };
 
@@ -379,7 +393,6 @@ const de: Dict = {
     pos: "Finnisch · Substantiv",
     definition: "Innere Stärke, Widerstandskraft, Ausdauer und Entschlossenheit angesichts von Widrigkeiten.",
     body: "Veränderung ist nie leicht; die meisten unvorbereitet gestarteten Transformationen bleiben auf halber Strecke stehen. Sie braucht die richtige Richtung, Geduld und Entschlossenheit. Diesen Weg gehen wir gemeinsam mit Ihrem Unternehmen — Schritt für Schritt.",
-    aside: "Jedes Unternehmen hat seinen eigenen Norden. Zuerst finden wir ihn gemeinsam.",
   },
   expertise: {
     fig: "FIG. 02 — KOMPETENZFELDER",
@@ -457,6 +470,13 @@ const de: Dict = {
         note: "Als Geschäftsführer von Amcor Flexibles Istanbul berichtet Mehmet Kurma, wie das Werk in Tuzla unter die Top 15 im weltweiten Umsatzranking von Amcor kam, über die Modernisierungsinvestition von 4,5 Mio. € und das Arbeitssicherheitsprogramm. (Artikel auf Türkisch.)",
         url: "https://packworldturkiye.com/baskili-ambalajla-ciro-siralamasinda-devler-ligine-girdi",
       },
+      {
+        source: "Haberler.com",
+        date: "2015-12-03",
+        title: "Amcor'a İş Güvenliği Başkanlık Altın Ödülü",
+        note: "Amcor Flexibles Istanbul erhielt für sein Programm „Sicherheitskapitäne“, bei dem jede Woche ein anderer Mitarbeiter auf unsicheres Verhalten achtet, einen Safety-Awards-Goldpreis; das Werk war 1.092 Tage unfallfrei. (Artikel auf Türkisch.)",
+        url: "https://www.haberler.com/guncel/amcor-a-is-guvenligi-baskanlik-altin-odulu-7933825-haberi/",
+      },
     ],
   },
   team: {
@@ -507,10 +527,11 @@ const de: Dict = {
       error: "Etwas ist schiefgelaufen. Bitte schreiben Sie uns eine E-Mail.",
       mailtoNote: "Mit „Senden“ öffnet sich Ihr E-Mail-Programm.",
       subject: "Nachricht über die Website",
+      label: "KONTAKTFORMULAR",
     },
     labels: { email: "E-Mail", phone: "Telefon", address: "Adresse" },
   },
-  footer: { tagline: "Innere Stärke gegen alle Widrigkeiten.", rights: "Alle Rechte vorbehalten." },
+  footer: { contact: "KONTAKT", address: "ADRESSE", rights: "Alle Rechte vorbehalten." },
   compass: { label: "Kompass", sub: "Die Richtung des Wandels" },
 };
 

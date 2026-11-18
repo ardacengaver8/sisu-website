@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Fig } from "../Fig";
 import { contact, type Dict } from "@/lib/i18n";
+import { MailIcon, PhoneIcon, PinIcon } from "../Icons";
 
 type State = "idle" | "sending" | "sent" | "error";
 
@@ -52,15 +53,20 @@ export default function Contact({ t }: { t: Dict["contact"] }) {
 
             <dl className="rv mt-12 border-t border-line">
               {[
-                { k: t.labels.email, v: contact.email, href: `mailto:${contact.email}` },
-                { k: t.labels.phone, v: contact.phone, href: contact.phoneHref },
-                { k: t.labels.address, v: contact.address, href: contact.mapHref },
-              ].map((r) => (
-                <div key={r.k} className="grid grid-cols-[100px_1fr] items-baseline gap-4 border-b border-line py-4 sm:grid-cols-[140px_1fr]">
-                  <dt className="label text-muted">{r.k}</dt>
+                { k: t.labels.email, v: contact.email, href: `mailto:${contact.email}`, Icon: MailIcon },
+                { k: t.labels.phone, v: contact.phone, href: contact.phoneHref, Icon: PhoneIcon },
+                { k: t.labels.address, v: contact.address, href: contact.mapHref, Icon: PinIcon },
+              ].map(({ k, v, href, Icon }) => (
+                <div key={k} className="grid grid-cols-[100px_1fr] items-center gap-4 border-b border-line py-4 sm:grid-cols-[140px_1fr]">
+                  <dt className="label text-muted">{k}</dt>
                   <dd>
-                    <a href={r.href} className="break-words hover:text-accent" {...(r.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}>
-                      {r.v}
+                    <a
+                      href={href}
+                      className="flex items-center gap-3 break-all hover:text-accent"
+                      {...(href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}
+                    >
+                      <Icon className="h-5 w-5 shrink-0 text-accent" />
+                      {v}
                     </a>
                   </dd>
                 </div>
@@ -70,7 +76,7 @@ export default function Contact({ t }: { t: Dict["contact"] }) {
 
           <form onSubmit={submit} className="rv crop self-start border border-line bg-panel/80 p-6 backdrop-blur-sm sm:p-10 lg:col-span-5 lg:col-start-8">
             <div className="label mb-4 flex justify-between text-accent">
-              <span>FORM — 01</span>
+              <span>{f.label}</span>
               <span className="normal-case">→ {contact.email.split("@")[1]}</span>
             </div>
             <div className="grid gap-6">

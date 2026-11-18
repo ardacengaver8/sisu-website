@@ -110,6 +110,13 @@ src/
   back to the placeholder if it's missing — to replace it, just overwrite the file. Current one is a
   358×447 crop of the LinkedIn photo; swap in a high-res original when available. Raw `<img>` paths must be
   prefixed with `${process.env.NEXT_PUBLIC_BASE_PATH}` (not base-path aware).
+- **Press:** `founder.press` in `i18n.ts` — listed under the career table, newest first. Link out to the
+  source and summarise in our own words; never paste article text.
+- **Career logos:** `LOGOS` map in `sections/Founder.tsx` (keyed by `org`, same in every language) →
+  `public/logos/*.svg`, shown in original colours on a small white plate. Siemens/Amcor from Wikimedia
+  Commons, Etapak from etapak.com.tr (also used for the "Etapak & Etap Enjeksiyon" row).
+- **Contact:** email/phone/address rows in `sections/Contact.tsx` and the footer use the line icons in
+  `components/Icons.tsx`; all are real `mailto:` / `tel:` / maps links. The footer has no tagline (client request).
 - **Contact form:** `contact.formEndpoint` in `i18n.ts`. Empty → the form opens the visitor's mail app.
   Paste a Formspree (or similar) endpoint to receive submissions directly.
 - **Pending from the client:** client list/logos, real blog posts, confirmation of
